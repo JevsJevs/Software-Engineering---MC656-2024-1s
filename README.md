@@ -3,4 +3,4 @@
 2. Mateus da Costa e Silva Rios Alves de Andrade - 230806
 3. Joao Eduardo Vasconcellos da Silva - 248343
 4. Breno Shigeki Guimarães Nishimoto - 220599
-5. 
+5. Guilhermo de Luiggi Mocelim de Oliveira - 223325
