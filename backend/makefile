@@ -6,6 +6,8 @@ FLASK := $(PYTHON) -m flask
 # Target: Install dependencies
 .PHONY: install
 install:
+	$(PYTHON) -m venv .backendEnv
+	. .backendEnv/bin/activate
 	$(PIP) install -r requirements.txt
 
 # Target: Run the Flask development server
@@ -14,7 +16,7 @@ run:
 
 # Target: Run unit tests (obs: there are no tests)
 test:
-	$(PYTHON) -m pytest tests/
+	$(PYTHON) -m pytest -s tests/
 
 # Target: Clean up
 clean:
