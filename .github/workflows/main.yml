@@ -2,7 +2,7 @@ name: Super duper simple CI 3000
 
 on:
   pull_request:
-    branches: [ development ]
+    branches: [ development, main ]
     
 jobs:
   build_app:
