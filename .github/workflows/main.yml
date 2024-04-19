@@ -1,0 +1,27 @@
+name: Super duper simple CI 3000
+
+on:
+  pull_request:
+    branches: [ development, main ]
+    
+jobs:
+  build_app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: 3.x
+
+      - name: Go back to repo
+        uses: actions/checkout@v2
+
+      - name: Instalacao
+        run:
+          make install -C ./backend/
+
+      - name: Executa Test
+        run:
+          make test -C ./backend/
+
+          

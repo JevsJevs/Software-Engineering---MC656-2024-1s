@@ -1,0 +1,26 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: default;
+  align-items: center;
+  height: 100vh;
+}
+
+.table-container img {
+  width: 400px;
+  padding: 24px;
+}
+
+table {
+  border: 4px solid gold;
+  width: 800px;
+  height: 200px;
+}
+
+th {
+  border-bottom: 1px solid silver;
+}
+
+td {
+  text-align: center;
+}
