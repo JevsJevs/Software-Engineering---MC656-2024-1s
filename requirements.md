@@ -55,7 +55,6 @@ Dessa forma, considerando esses critérios e os sites analisados foram identific
    - Os usuários podem personalizar sua experiência, filtrando os resultados por esportes ou países, por exemplo.
 
 4. **Desempenho e Velocidade:**
-   - Os sites carregam rapidamente, garantindo uma experiência fluida para os usuários, mesmo em conexões de internet mais lentas.
    - Os sites são otimizados para uma performance eficiente, minimizando o tempo de resposta e garantindo uma navegação suave.
 
 ## 2. Especificação de Personas
