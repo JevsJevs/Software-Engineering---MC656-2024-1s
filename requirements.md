@@ -114,5 +114,6 @@ Outro artefato que utilizamos foi a construção de personas. Durante uma sessã
 Além disso, também entrevistamos alguns indivíduos para elicitar requisitos do ponto de vista de um usuário comum. Segue o link para as entrevistas em um drive:
 
 [Entrevista 1](https://drive.google.com/file/d/1MpxjKBWM1Tb3dFBTu8QZojGz5MDwl8RL/view?usp=sharing)
+Da primeira entrevista pudemos notar uma maior valorização para atualizações frequentes, com o entrevistado mostrando mais interesse em ter acesso às classificações mais rapidamente atualizadas e às mais recentes notícias. A paleta de cores sugerida para o design foi branco/vermelho
 [Entrevista 2](https://drive.google.com/file/d/13KJNjnwSL220n4Oqv0FmQ0KW-c45IhO1/view?usp=sharing)
 [Entrevista 3](https://drive.google.com/file/d/13JdPSHgrvqM3rn5NA35R8P0O3ciCVXgv/view?usp=sharing)
