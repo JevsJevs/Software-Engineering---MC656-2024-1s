@@ -135,5 +135,6 @@ Baseado nessas informações, foi possível amadurecer as histórias dos usuári
 
 
 [Entrevista 1](https://drive.google.com/file/d/1MpxjKBWM1Tb3dFBTu8QZojGz5MDwl8RL/view?usp=sharing)
-
+[Entrevista 2](https://drive.google.com/file/d/1jwu9ioOuoB4AcnqZqKc2XtiBGvUxWS1A/view?usp=sharing)
+[Entrevista 3](https://drive.google.com/file/d/1FNYBMlQLrE5e05qIlaECs5FHjphOfo6I/view?usp=sharing)
 
