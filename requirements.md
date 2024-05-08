@@ -1,4 +1,4 @@
-![image](https://github.com/JevsJevs/SoftwareEngineering-MC656-2024-1s/assets/67435343/7e46dec2-1178-4133-9b95-f61be8f847ef)# Avaliação 3
+# Avaliação 3
 
 **Nome dos Alunos:**
 1. Breno Shigeki Guimarães Nishimoto - 220599
@@ -134,9 +134,4 @@ Dentre os pontos mais populares estão:
 Baseado nessas informações, foi possível amadurecer as histórias dos usuários e gerar issues voltadas diretamente às suas necessidades. 
 
 
-[Entrevista 1](https://drive.google.com/file/d/1MpxjKBWM1Tb3dFBTu8QZojGz5MDwl8RL/view?usp=sharing)
-[Entrevista 2](https://drive.google.com/file/d/1jwu9ioOuoB4AcnqZqKc2XtiBGvUxWS1A/view?usp=sharing)
-[Entrevista 3](https://drive.google.com/file/d/1FNYBMlQLrE5e05qIlaECs5FHjphOfo6I/view?usp=sharing)
-[Entrevista 4](https://drive.google.com/file/d/13JdPSHgrvqM3rn5NA35R8P0O3ciCVXgv/view?usp=sharing)
-[Entrevista 5](https://drive.google.com/file/d/13KJNjnwSL220n4Oqv0FmQ0KW-c45IhO1/view?usp=sharing)
-
+[Entrevistas](https://drive.google.com/drive/folders/1k7JpCP0-SR4Fpnad7-9ca20NY3pzEpXN)
