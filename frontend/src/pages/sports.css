@@ -1,0 +1,42 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.sports-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  list-style: none;
+}
+
+.sports-item {
+  text-align: center;
+  margin: 10px auto;
+  flex: 1;
+  min-width: 400px;
+}
+
+.sport-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Mudança aqui */
+  align-items: center;
+}
+
+.name {
+  margin-bottom: 5px;
+}
+
+.image {
+  width: 100px;
+  padding: 24px;
+}
+
+.image-container {
+  margin-bottom: 10px; /* Adição de margem inferior */
+}

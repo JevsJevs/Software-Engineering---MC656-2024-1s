@@ -1,5 +1,3 @@
-// pages/index.js
-
 import React from "react";
 import './index.css'
 import logo from '../assets/The Paris 2024 Summer Olympics and Paralympics.png'
