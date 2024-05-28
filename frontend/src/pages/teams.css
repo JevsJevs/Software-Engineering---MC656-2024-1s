@@ -1,0 +1,50 @@
+.container {
+    text-align: center;
+  }
+  
+  .title {
+    margin-top: 20px;
+  }
+  
+  .teams-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    list-style: none;
+  }
+  
+  .teams-item {
+    text-align: center;
+    margin: 10px auto;
+    flex: 1;
+    min-width: 400px;
+  }
+  
+  .team-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 150px;
+  }
+  
+  
+  .name, .athletes {
+    margin: 0;
+    text-align: left; 
+  }
+  
+  .image {
+    width: 100px;
+    padding: 0;
+    align-self: center; 
+  }
+  
+  
+  .details {
+    flex: 2;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  
