@@ -55,7 +55,7 @@ def medals_by_category(category):
         table = csv.DictReader(f)
         return [entry for entry in table if entry["Category"] == category]
     
-@app.route("medals/continent/<continent>", methods=["GET"])
+@app.route("/medals/continent/<continent>", methods=["GET"])
 def medals_by_continent(continent):
     with open("../lib/Olympics_Medal_Table.csv") as f: # substituir isso por um join para pegar os continentes
         table = csv.DictReader(f)
