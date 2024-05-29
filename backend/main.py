@@ -22,7 +22,7 @@ def medals():
         table = csv.DictReader(f)
         return list(table)
 
-@app.route("/top/<int:n>", methods=["GET"])
+@app.route("/medals/top/<int:n>", methods=["GET"])
 def top_n(n):
     with open("../lib/Olympics_Medal_Table.csv") as f:
         table = csv.DictReader(f)
