@@ -1,0 +1,340 @@
+id,evento,esporte
+0,Feminino,3x3 Basketball,Basquete 3x3
+1,Masculino,3x3 Basketball,Basquete 3x3
+2,Equipe Feminina,Archery,Tiro com Arco
+3,Equipe Masculina,Archery,Tiro com Arco
+4,Equipe Mista,Archery,Tiro com Arco
+5,Individual Feminino,Archery,Tiro com Arco
+6,Individual Masculino,Archery,Tiro com Arco
+7,Argolas Masculino,Artistic Gymnastics,Ginástica Artística
+8,Barra Fixa Masculino,Artistic Gymnastics,Ginástica Artística
+9,Barras Assimétricas Feminino,Artistic Gymnastics,Ginástica Artística
+10,Barras Paralelas Masculino,Artistic Gymnastics,Ginástica Artística
+11,Cavalo com Alças Masculino,Artistic Gymnastics,Ginástica Artística
+12,Equipe Feminina,Artistic Gymnastics,Ginástica Artística
+13,Equipe Masculina,Artistic Gymnastics,Ginástica Artística
+14,Exercício de Solo Masculino,Artistic Gymnastics,Ginástica Artística
+15,Geral Individual Feminino,Artistic Gymnastics,Ginástica Artística
+16,Geral Individual Masculino,Artistic Gymnastics,Ginástica Artística
+17,Salto Feminino,Artistic Gymnastics,Ginástica Artística
+18,Salto Masculino,Artistic Gymnastics,Ginástica Artística
+19,Solo Feminino,Artistic Gymnastics,Ginástica Artística
+20,Trava de Equilíbrio Feminino,Artistic Gymnastics,Ginástica Artística
+21,Dueto,Artistic Swimming,Nado Artístico
+22,Equipe,Artistic Swimming,Nado Artístico
+23,"10,000m Feminino",Athletics,Atletismo
+24,"10,000m Masculino",Athletics,Atletismo
+25,100m Barreiras Feminino,Athletics,Atletismo
+26,100m Feminino,Athletics,Atletismo
+27,100m Masculino,Athletics,Atletismo
+28,110m Barreiras Masculino,Athletics,Atletismo
+29,1500m Feminino,Athletics,Atletismo
+30,1500m Masculino,Athletics,Atletismo
+31,200m Feminino,Athletics,Atletismo
+32,200m Masculino,Athletics,Atletismo
+33,3000m com Obstáculos Feminino,Athletics,Atletismo
+34,3000m com Obstáculos Masculino,Athletics,Atletismo
+35,400m Barreiras Feminino,Athletics,Atletismo
+36,400m Barreiras Masculino,Athletics,Atletismo
+37,400m Feminino,Athletics,Atletismo
+38,400m Masculino,Athletics,Atletismo
+39,5000m Feminino,Athletics,Atletismo
+40,5000m Masculino,Athletics,Atletismo
+41,800m Feminino,Athletics,Atletismo
+42,800m Masculino,Athletics,Atletismo
+43,Arremesso de Peso Feminino,Athletics,Atletismo
+44,Arremesso de Peso Masculino,Athletics,Atletismo
+45,Decatlo Masculino,Athletics,Atletismo
+46,Heptatlo Feminino,Athletics,Atletismo
+47,Lançamento de Dardo Feminino,Athletics,Atletismo
+48,Lançamento de Dardo Masculino,Athletics,Atletismo
+49,Lançamento de Disco Feminino,Athletics,Atletismo
+50,Lançamento de Disco Masculino,Athletics,Atletismo
+51,Lançamento de Martelo Feminino,Athletics,Atletismo
+52,Lançamento de Martelo Masculino,Athletics,Atletismo
+53,Maratona Feminina,Athletics,Atletismo
+54,Maratona Masculina,Athletics,Atletismo
+55,Marcha de 20km Feminino,Athletics,Atletismo
+56,Marcha de 20km Masculino,Athletics,Atletismo
+57,Marcha de 50km Masculino,Athletics,Atletismo
+58,Revezamento 4x100m Feminino,Athletics,Atletismo
+59,Revezamento 4x100m Masculino,Athletics,Atletismo
+60,Revezamento 4x400m Feminino,Athletics,Atletismo
+61,Revezamento 4x400m Masculino,Athletics,Atletismo
+62,Revezamento 4x400m Misto,Athletics,Atletismo
+63,Salto com Vara Feminino,Athletics,Atletismo
+64,Salto com Vara Masculino,Athletics,Atletismo
+65,Salto em Altura Feminino,Athletics,Atletismo
+66,Salto em Altura Masculino,Athletics,Atletismo
+67,Salto em Distância Feminino,Athletics,Atletismo
+68,Salto em Distância Masculino,Athletics,Atletismo
+69,Salto Triplo Feminino,Athletics,Atletismo
+70,Salto Triplo Masculino,Athletics,Atletismo
+71,Duplas Femininas,Badminton,Badminton
+72,Duplas Masculinas,Badminton,Badminton
+73,Duplas Mistas,Badminton,Badminton
+74,Individual Feminino,Badminton,Badminton
+75,Individual Masculino,Badminton,Badminton
+76,Beisebol,Baseball/Softball,Beisebol/Softbol
+77,Softbol,Baseball/Softball,Beisebol/Softbol
+78,Feminino,Basketball,Basquete
+79,Masculino,Basketball,Basquete
+80,Feminino,Beach Volleyball,Vôlei de Praia
+81,Masculino,Beach Volleyball,Vôlei de Praia
+82,Peso Leve Feminino (57-60kg),Boxing,Boxe
+83,Peso Leve Masculino (57-63kg),Boxing,Boxe
+84,Peso Médio Feminino (69-75kg),Boxing,Boxe
+85,Peso Médio Masculino (69-75kg),Boxing,Boxe
+86,Peso Meio-Médio Feminino (64-69 kg),Boxing,Boxe
+87,Peso Meio-Médio Masculino (63-69kg),Boxing,Boxe
+88,Peso Meio-Pesado Masculino (75-81kg),Boxing,Boxe
+89,Peso Mosca Feminino (48-51kg),Boxing,Boxe
+90,Peso Mosca Masculino (48-52kg),Boxing,Boxe
+91,Peso Pena Feminino (54-57kg),Boxing,Boxe
+92,Peso Pena Masculino (52-57kg),Boxing,Boxe
+93,Peso Pesado Masculino (81-91kg),Boxing,Boxe
+94,Peso Super Pesado Masculino (+91kg),Boxing,Boxe
+95,Caiaque Feminino,Canoe Slalom,Canoagem Slalom
+96,Caiaque Masculino,Canoe Slalom,Canoagem Slalom
+97,Canoagem Feminina,Canoe Slalom,Canoagem Slalom
+98,Canoagem Masculina,Canoe Slalom,Canoagem Slalom
+99,Caiaque em Dupla 1000m Masculino,Canoe Sprint,Canoagem de Velocidade
+100,Caiaque em Dupla 500m Feminino,Canoe Sprint,Canoagem de Velocidade
+101,Caiaque em Quatro 500m Feminino,Canoe Sprint,Canoagem de Velocidade
+102,Caiaque em Quatro 500m Masculino,Canoe Sprint,Canoagem de Velocidade
+103,Caiaque Individual 1000m Masculino,Canoe Sprint,Canoagem de Velocidade
+104,Caiaque Individual 200m Feminino,Canoe Sprint,Canoagem de Velocidade
+105,Caiaque Individual 200m Masculino,Canoe Sprint,Canoagem de Velocidade
+106,Caiaque Individual 500m Feminino,Canoe Sprint,Canoagem de Velocidade
+107,Canoagem em Dupla 1000m Masculina,Canoe Sprint,Canoagem de Velocidade
+108,Canoagem em Dupla 500m Feminina,Canoe Sprint,Canoagem de Velocidade
+109,Canoagem Individual 1000m Masculina,Canoe Sprint,Canoagem de Velocidade
+110,Canoagem Individual 200m Feminina,Canoe Sprint,Canoagem de Velocidade
+111,Park Feminino,Cycling BMX Freestyle,Ciclismo BMX Freestyle
+112,Park Masculino,Cycling BMX Freestyle,Ciclismo BMX Freestyle
+113,Feminino,Cycling BMX Racing,Ciclismo BMX Racing
+114,Masculino,Cycling BMX Racing,Ciclismo BMX Racing
+115,Cross-country Feminino,Cycling Mountain Bike,Ciclismo Mountain Bike
+116,Cross-country Masculino,Cycling Mountain Bike,Ciclismo Mountain Bike
+117,Contrarrelógio Individual Feminino,Cycling Road,Ciclismo de Estrada
+118,Contrarrelógio Individual Masculino,Cycling Road,Ciclismo de Estrada
+119,Corrida de Rua Feminina,Cycling Road,Ciclismo de Estrada
+120,Corrida de Rua Masculina,Cycling Road,Ciclismo de Estrada
+121,Equipe Perseguição Feminina,Cycling Track,Ciclismo de Pista
+122,Equipe Perseguição Masculina,Cycling Track,Ciclismo de Pista
+123,Equipe Sprint Feminina,Cycling Track,Ciclismo de Pista
+124,Equipe Sprint Masculina,Cycling Track,Ciclismo de Pista
+125,Keirin Feminino,Cycling Track,Ciclismo de Pista
+126,Keirin Masculino,Cycling Track,Ciclismo de Pista
+127,Madison Feminino,Cycling Track,Ciclismo de Pista
+128,Madison Masculino,Cycling Track,Ciclismo de Pista
+129,Omnium Feminino,Cycling Track,Ciclismo de Pista
+130,Omnium Masculino,Cycling Track,Ciclismo de Pista
+131,Sprint Feminino,Cycling Track,Ciclismo de Pista
+132,Sprint Masculino,Cycling Track,Ciclismo de Pista
+133,Plataforma 10m Feminina,Diving,Saltos Ornamentais
+134,Plataforma 10m Masculina,Diving,Saltos Ornamentais
+135,Plataforma Sincronizada 10m Feminina,Diving,Saltos Ornamentais
+136,Plataforma Sincronizada 10m Masculino,Diving,Saltos Ornamentais
+137,Trampolim 3m Feminino,Diving,Saltos Ornamentais
+138,Trampolim 3m Masculino,Diving,Saltos Ornamentais
+139,Trampolim Sincronizado 3m Feminino,Diving,Saltos Ornamentais
+140,Trampolim Sincronizado 3m Masculino,Diving,Saltos Ornamentais
+141,Adestramento Individual,Equestrian,Hipismo
+142,Adestramento por Equipes,Equestrian,Hipismo
+143,Concurso Completo Individual,Equestrian,Hipismo
+144,Concurso Completo por Equipes,Equestrian,Hipismo
+145,Salto Individual,Equestrian,Hipismo
+146,Saltos por Equipes,Equestrian,Hipismo
+147,Equipe Espada Feminina,Fencing,Esgrima
+148,Equipe Espada Masculina,Fencing,Esgrima
+149,Equipe Florete Feminino,Fencing,Esgrima
+150,Equipe Florete Masculino,Fencing,Esgrima
+151,Equipe Sabre Feminino,Fencing,Esgrima
+152,Equipe Sabre Masculino,Fencing,Esgrima
+153,Espada Individual Feminino,Fencing,Esgrima
+154,Espada Individual Masculino,Fencing,Esgrima
+155,Florete Individual Feminino,Fencing,Esgrima
+156,Florete Individual Masculino,Fencing,Esgrima
+157,Sabre Individual Feminino,Fencing,Esgrima
+158,Sabre Individual Masculino,Fencing,Esgrima
+159,Feminino,Football,Futebol
+160,Masculino,Football,Futebol
+161,Jogo por Tacadas Individual Feminino,Golf,Golfe
+162,Jogo por Tacadas Individual Masculino,Golf,Golfe
+163,Feminino,Handball,Handebol
+164,Masculino,Handball,Handebol
+165,Feminino,Hockey,Hóquei sobre Grama
+166,Masculino,Hockey,Hóquei sobre Grama
+167,+100kg Masculino,Judo,Judô
+168,+78kg Feminino,Judo,Judô
+169,100kg Masculino,Judo,Judô
+170,48kg Feminino,Judo,Judô
+171,52kg Feminino,Judo,Judô
+172,57kg Feminino,Judo,Judô
+173,60kg Masculino,Judo,Judô
+174,63kg Feminino,Judo,Judô
+175,66kg Masculino,Judo,Judô
+176,70kg Feminino,Judo,Judô
+177,73kg Masculino,Judo,Judô
+178,78kg Feminino,Judo,Judô
+179,81kg Masculino,Judo,Judô
+180,90kg Masculino,Judo,Judô
+181,Equipe Mista,Judo,Judô
+182,Kata Feminino,Karate,Karatê
+183,Kata Masculino,Karate,Karatê
+184,Kumitê -61kg Feminino,Karate,Karatê
+185,Kumitê -75kg Masculino,Karate,Karatê
+186,Kumitê +61kg Feminino,Karate,Karatê
+187,Kumitê +75kg Masculino,Karate,Karatê
+188,Kumitê 55kg Feminino,Karate,Karatê
+189,Kumitê 67kg Masculino,Karate,Karatê
+190,Feminino 10km,Marathon Swimming,Maratona Aquática
+191,Masculino 10km,Marathon Swimming,Maratona Aquática
+192,Individual Feminino,Modern Pentathlon,Pentatlo Moderno
+193,Individual Masculino,Modern Pentathlon,Pentatlo Moderno
+194,Geral Equipes,Rhythmic Gymnastics,Ginástica Rítmica
+195,Geral Individual,Rhythmic Gymnastics,Ginástica Rítmica
+196,Dois Sem Feminino,Rowing,Remo
+197,Dois Sem Masculino,Rowing,Remo
+198,Oito Feminino,Rowing,Remo
+199,Oito masculino,Rowing,Remo
+200,Quatro Sem Feminino,Rowing,Remo
+201,Quatro Sem Masculino,Rowing,Remo
+202,Skiff Duplo Feminino,Rowing,Remo
+203,Skiff Duplo Leve Feminino,Rowing,Remo
+204,Skiff Duplo Leve Masculino,Rowing,Remo
+205,Skiff Duplo Masculino,Rowing,Remo
+206,Skiff Quádruplo Feminino,Rowing,Remo
+207,Skiff Quádruplo Masculino,Rowing,Remo
+208,Skiff Simples Feminino,Rowing,Remo
+209,Skiff Simples Masculino,Rowing,Remo
+210,Feminino,Rugby Sevens,Rugby Sevens
+211,Masculino,Rugby Sevens,Rugby Sevens
+212,470 Feminino,Sailing,Vela
+213,470 Masculino,Sailing,Vela
+214,49er FX Feminino,Sailing,Vela
+215,49er Masculino,Sailing,Vela
+216,Finn Masculino,Sailing,Vela
+217,Laser Masculino,Sailing,Vela
+218,Laser Radial Feminino,Sailing,Vela
+219,Nacra 17 Misto,Sailing,Vela
+220,RS: X Feminino,Sailing,Vela
+221,RS: X Masculino,Sailing,Vela
+222,Carabina 3 posições 50m feminino,Shooting,Tiro Esportivo
+223,Carabina 3 Posições 50m Masculina,Shooting,Tiro Esportivo
+224,Carabina de Ar 10m Equipe Mista,Shooting,Tiro Esportivo
+225,Carabina de Ar 10m feminino,Shooting,Tiro Esportivo
+226,Carabina de Ar 10m Masculino,Shooting,Tiro Esportivo
+227,Equipe Mista Trap,Shooting,Tiro Esportivo
+228,Fossa Olímpica feminino,Shooting,Tiro Esportivo
+229,Pistola 25m Feminina,Shooting,Tiro Esportivo
+230,Pistola de Ar 10m Equipe Mista,Shooting,Tiro Esportivo
+231,Pistola de Ar 10m Masculina,Shooting,Tiro Esportivo
+232,Pistola de Tiro Rápido 25m Masculino,Shooting,Tiro Esportivo
+233,Pitola de Ar 10m feminino,Shooting,Tiro Esportivo
+234,Skeet feminino,Shooting,Tiro Esportivo
+235,Skeet Masculino,Shooting,Tiro Esportivo
+236,Trap Masculino,Shooting,Tiro Esportivo
+237,Park Feminino,Skateboarding,Skate
+238,Park Masculino,Skateboarding,Skate
+239,Street Feminino,Skateboarding,Skate
+240,Street Masculino,Skateboarding,Skate
+241,Combinado Feminino,Sport Climbing,Escalada
+242,Combinado Masculino,Sport Climbing,Escalada
+243,Feminino,Surfing,Surfing
+244,Masculino,Surfing,Surfing
+245,100m Borboleta Feminino,Swimming,Natação
+246,100m Borboleta Masculino,Swimming,Natação
+247,100m Costas Feminino,Swimming,Natação
+248,100m Costas Masculino,Swimming,Natação
+249,100m Livre Feminino,Swimming,Natação
+250,100m Livre Masculino,Swimming,Natação
+251,100m Peito Feminino,Swimming,Natação
+252,100m Peito Masculino,Swimming,Natação
+253,1500m Livre Feminino,Swimming,Natação
+254,1500m Livre Masculino,Swimming,Natação
+255,200m Borboleta Feminino,Swimming,Natação
+256,200m Borboleta Masculino,Swimming,Natação
+257,200m Costas Feminino,Swimming,Natação
+258,200m Costas Masculino,Swimming,Natação
+259,200m Individual Medley Feminino,Swimming,Natação
+260,200m Individual Medley Masculino,Swimming,Natação
+261,200m Livre Feminino,Swimming,Natação
+262,200m Livre Masculino,Swimming,Natação
+263,200m Peito Feminino,Swimming,Natação
+264,200m Peito Masculino,Swimming,Natação
+265,400m Individual Medley Feminino,Swimming,Natação
+266,400m Individual Medley Masculino,Swimming,Natação
+267,400m Livre Feminino,Swimming,Natação
+268,400m Livre Masculino,Swimming,Natação
+269,50m Livre Feminino,Swimming,Natação
+270,50m Livre Masculino,Swimming,Natação
+271,800m Livre Feminino,Swimming,Natação
+272,800m Livre Masculino,Swimming,Natação
+273,Revezamento 4x100m Livre Feminino,Swimming,Natação
+274,Revezamento 4x100m Livre Masculino,Swimming,Natação
+275,Revezamento 4x100m Medley Feminino,Swimming,Natação
+276,Revezamento 4x100m Medley Masculino,Swimming,Natação
+277,Revezamento 4x100m Medley Misto,Swimming,Natação
+278,Revezamento 4x200m Livre Feminino,Swimming,Natação
+279,Revezamento 4x200m Livre Masculino,Swimming,Natação
+280,Duplas Mistas,Table Tennis,Tênis de Mesa
+281,Equipe Feminina,Table Tennis,Tênis de Mesa
+282,Equipe Masculina,Table Tennis,Tênis de Mesa
+283,Individual Feminino,Table Tennis,Tênis de Mesa
+284,Individual Masculino,Table Tennis,Tênis de Mesa
+285,Feminino -49kg,Taekwondo,Taekwondo
+286,Feminino -57kg,Taekwondo,Taekwondo
+287,Feminino -67kg,Taekwondo,Taekwondo
+288,Feminino +67kg,Taekwondo,Taekwondo
+289,Masculino -58kg,Taekwondo,Taekwondo
+290,Masculino -68kg,Taekwondo,Taekwondo
+291,Masculino -80kg,Taekwondo,Taekwondo
+292,Masculino +80kg,Taekwondo,Taekwondo
+293,Duplas Femininas,Tennis,Tênis
+294,Duplas Masculinas,Tennis,Tênis
+295,Duplas Mistas,Tennis,Tênis
+296,Individual Feminino,Tennis,Tênis
+297,Individual Masculino,Tennis,Tênis
+298,Feminino,Trampoline Gymnastics,Ginástica de Trampolim
+299,Masculino,Trampoline Gymnastics,Ginástica de Trampolim
+300,Individual Feminino,Triathlon,Triatlo
+301,Individual Masculino,Triathlon,Triatlo
+302,Revezamento Misto,Triathlon,Triatlo
+303,Feminino,Volleyball,Vôlei
+304,Masculino,Volleyball,Vôlei
+305,Feminino,Water Polo,Polo Aquático
+306,Masculino,Water Polo,Polo Aquático
+307,+109kg Masculino,Weightlifting,Levantamento de Peso
+308,+87kg Feminino,Weightlifting,Levantamento de Peso
+309,109kg Masculino,Weightlifting,Levantamento de Peso
+310,49kg Feminino,Weightlifting,Levantamento de Peso
+311,55kg Feminino,Weightlifting,Levantamento de Peso
+312,59kg Feminino,Weightlifting,Levantamento de Peso
+313,61kg Masculino,Weightlifting,Levantamento de Peso
+314,64kg Feminino,Weightlifting,Levantamento de Peso
+315,67kg Masculino,Weightlifting,Levantamento de Peso
+316,73kg Masculino,Weightlifting,Levantamento de Peso
+317,76kg Feminino,Weightlifting,Levantamento de Peso
+318,81kg Masculino,Weightlifting,Levantamento de Peso
+319,87kg Feminino,Weightlifting,Levantamento de Peso
+320,96kg Masculino,Weightlifting,Levantamento de Peso
+321,Estilo Livre 125kg Masculino,Wrestling,Luta
+322,Estilo Livre 50kg Feminino,Wrestling,Luta
+323,Estilo Livre 53kg Feminino,Wrestling,Luta
+324,Estilo Livre 57kg Feminino,Wrestling,Luta
+325,Estilo Livre 57kg Masculino,Wrestling,Luta
+326,Estilo Livre 62kg Feminino,Wrestling,Luta
+327,Estilo Livre 65kg Masculino,Wrestling,Luta
+328,Estilo Livre 68kg Feminino,Wrestling,Luta
+329,Estilo Livre 74kg Masculino,Wrestling,Luta
+330,Estilo Livre 76kg Feminino,Wrestling,Luta
+331,Estilo Livre 86kg Masculino,Wrestling,Luta
+332,Estilo Livre 97kg Masculino,Wrestling,Luta
+333,Greco-romana 130kg Masculino,Wrestling,Luta
+334,Greco-romana 60kg Masculino,Wrestling,Luta
+335,Greco-romana 67kg Masculino,Wrestling,Luta
+336,Greco-romana 77kg Masculino,Wrestling,Luta
+337,Greco-romana 87kg Masculino,Wrestling,Luta
+338,Greco-romana 97Kg Masculino,Wrestling,Luta
