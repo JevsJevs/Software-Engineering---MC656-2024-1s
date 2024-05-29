@@ -24,6 +24,7 @@ def medals():
 
 @app.route("/medals/top/<int:n>", methods=["GET"])
 def top_n(n):
+    # Retorna os n países com mais medalhas de ouro
     with open("../lib/Olympics_Medal_Table.csv") as f:
         table = csv.DictReader(f)
         ranking = sorted(table, key=lambda x: int(x["Gold"]), reverse=True)
@@ -31,6 +32,7 @@ def top_n(n):
         
 @app.route("/medals/ratio", methods=["GET"])
 def medals_ratio():
+    # Retorna os países ordenados pelo razão de ouro/total
     with open("../lib/Olympics_Medal_Table.csv") as f:
         table = csv.DictReader(f)
         ranking = sorted(table, key=lambda x: int(x["Gold"]) / int(x["Total"]), reverse=True)
@@ -38,6 +40,7 @@ def medals_ratio():
     
 @app.route("/medals/compare", methods=["GET"])
 def medals_compare():
+    # Retorna o top 10 (provisoriamente) de medalhas de ouro dos jogos atuais e da última edição
     with open("../lib/Olympics_Medal_Table.csv") as f:
         table = csv.DictReader(f)
         ranking = sorted(table, key=lambda x: int(x["Gold"]), reverse=True)[:10]
