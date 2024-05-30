@@ -1,5 +1,9 @@
 import csv
 import sqlite3
+from utils import get_event_id
+
+def get_athlete_id(url: str):
+    return url.split("athlete-profile-n")[1].split("-")[0]
 
 def esportes(cx: sqlite3.Connection):
     with open("scrapping/esportes.csv") as f:
@@ -33,27 +37,32 @@ def paises(cx: sqlite3.Connection):
 def atletas(cx: sqlite3.Connection):
     with open("scrapping/kaggle/athletes.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
-        sql = "INSERT OR IGNORE INTO atleta(id, nome, idade, noc) VALUES (:short_name, :name, :birth_date, :country)"
+        cx.execute("DELETE FROM atleta")
+        sql = "INSERT OR IGNORE INTO atleta(id, nome, idade, genero, noc) VALUES (:url, :name, :birth_date, :gender, :country)"
         for line in reader:
+            line["gender"] = "F" if line["gender"] == "Female" else "M" if line["gender"] == "Male" else "X"
+            line["url"] = get_athlete_id(line["url"])
             cx.execute(sql, line)
+        cx.commit()
 
 
 def medals(cx: sqlite3.Connection):
     with open("scrapping/kaggle/medals.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
+        cx.execute("DELETE FROM medalha")
         sql = "INSERT OR IGNORE INTO medalha(evento, atleta, tipo) values (?, ?, ?)"
         for line in reader:
-            evento = line["event"]
-            atleta = line["athlete_short_name"]
+            evento = get_event_id(line["event"], line["discipline"])
+            atleta = get_athlete_id(line["athlete_link"])
             tipo = ["O", "P", "B"][int(line["medal_code"]) - 1]
             cx.execute(sql, [evento, atleta, tipo])
         cx.commit()
 
 if __name__ == "__main__":
     cx = sqlite3.connect("database/banco.db")
-    atletas(cx)
-    esportes(cx)
-    eventos(cx)
+    # esportes(cx)
+    # eventos(cx)
     # paises(cx)
+    atletas(cx)
     medals(cx)
     cx.close()
