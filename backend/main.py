@@ -1,5 +1,8 @@
 from flask import Flask
 import csv
+import sqlite3
+
+cx = sqlite3.connect("database/teste.db")
 
 app = Flask(__name__)
 
