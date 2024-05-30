@@ -34,9 +34,21 @@ def atletas(cx: sqlite3.Connection):
     with open("scrapping/eventos2.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
 
+def medals(cx: sqlite3.Connection):
+    with open("scrapping/kaggle/medals.csv") as f:
+        reader = csv.DictReader(f, lineterminator='\n')
+        sql = "INSERT OR IGNORE INTO medalha(evento, atleta, tipo) values (?, ?, ?)"
+        for line in reader:
+            evento = line["event"]
+            atleta = line["athlete_short_name"]
+            tipo = ["O", "P", "B"][int(line["medal_code"]) - 1]
+            cx.execute(sql, [evento, atleta, tipo])
+        cx.commit()
+
 if __name__ == "__main__":
     cx = sqlite3.connect("database/banco.db")
     esportes(cx)
     eventos(cx)
     paises(cx)
+    medals(cx)
     cx.close()
