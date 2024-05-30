@@ -20,8 +20,14 @@ def eventos(cx: sqlite3.Connection):
         cx.commit()
 
 def paises(cx: sqlite3.Connection):
-    with open("scrapping/athletes.csv") as f:
-        reader = csv.DictReader(f, lineterminator='\n')
+    with (open("scrapping/noc_pt.csv") as g):
+        reader = csv.DictReader(g, lineterminator='\n')
+        sql = "INSERT OR IGNORE INTO noc(codigo, nome) VALUES (:codigo, :nome)"
+        for line in reader:
+            cx.execute(sql, line)
+            
+
+        cx.commit()
         
 
 def atletas(cx: sqlite3.Connection):
@@ -32,4 +38,5 @@ if __name__ == "__main__":
     cx = sqlite3.connect("database/banco.db")
     esportes(cx)
     eventos(cx)
+    paises(cx)
     cx.close()
