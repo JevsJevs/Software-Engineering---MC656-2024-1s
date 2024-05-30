@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+import csv
 
 driver = webdriver.Firefox()
 driver.implicitly_wait(7)
@@ -18,36 +19,39 @@ e = driver.find_element(By.CSS_SELECTOR, 'section[data-cy="disciplines-list"]')
 l = e.find_elements(By.CSS_SELECTOR, 'a[data-cy="disciplines-item"]')
 esportes = []
 for esporte in l:
-    esportes.append(esporte.find_element(By.TAG_NAME, 'p').get_attribute("innerHTML"))
+    nome = esporte.find_element(By.TAG_NAME, 'p').get_attribute("innerHTML")
+    id = esporte.get_attribute("href").split("/")[-1]
+    esportes.append((id, nome))
 with open("scrapping/esportes.csv", "w") as f:
-    f.write("id,nome\n")
-    for i, esporte in enumerate(esportes):
-        f.write(f"{i},{esporte}\n")
+    w = csv.writer(f, lineterminator='\n')
+    w.writerow(["id", "esporte_pt"])
+    for e in esportes:
+        w.writerow(e)
 
-driver.get("https://olympics.com/en/olympic-games/tokyo-2020/results")
-driver.implicitly_wait(7)
-(ActionChains(driver)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .scroll_by_amount(0, 400)
-    .perform())
-# e = driver.find_element(By.ID, "olympic-games-disciplines")
-e = driver.find_element(By.CSS_SELECTOR, 'section[data-cy="disciplines-list"]')
-l = e.find_elements(By.CSS_SELECTOR, 'a[data-cy="disciplines-item"]')
-esportes = []
-for esporte in l:
-    esportes.append(esporte.find_element(By.TAG_NAME, 'p').get_attribute("innerHTML"))
-with open("scrapping/esportes_en.csv", "w") as f:
-    f.write("id,nome\n")
-    for i, esporte in enumerate(esportes):
-        f.write(f"{i},{esporte}\n")
+# driver.get("https://olympics.com/en/olympic-games/tokyo-2020/results")
+# driver.implicitly_wait(7)
+# (ActionChains(driver)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .scroll_by_amount(0, 400)
+#     .perform())
+# # e = driver.find_element(By.ID, "olympic-games-disciplines")
+# e = driver.find_element(By.CSS_SELECTOR, 'section[data-cy="disciplines-list"]')
+# l = e.find_elements(By.CSS_SELECTOR, 'a[data-cy="disciplines-item"]')
+# esportes = []
+# for esporte in l:
+#     esportes.append(esporte.find_element(By.TAG_NAME, 'p').get_attribute("innerHTML"))
+# with open("scrapping/esportes_en.csv", "w") as f:
+#     f.write("id,nome\n")
+#     for i, esporte in enumerate(esportes):
+#         f.write(f"{i},{esporte}\n")
     
