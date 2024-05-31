@@ -38,7 +38,7 @@ def atletas(cx: sqlite3.Connection):
     with open("scrapping/kaggle/athletes.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
         cx.execute("DELETE FROM atleta")
-        sql = "INSERT OR IGNORE INTO atleta(id, nome, idade, genero, noc) VALUES (:url, :name, :birth_date, :gender, :country)"
+        sql = "INSERT OR IGNORE INTO atleta(id, nome, idade, genero, noc) VALUES (:url, :name, :birth_date, :gender, :country_code)"
         for line in reader:
             line["gender"] = "F" if line["gender"] == "Female" else "M" if line["gender"] == "Male" else "X"
             line["url"] = get_athlete_id(line["url"])
