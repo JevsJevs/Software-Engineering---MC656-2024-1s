@@ -1,47 +1,47 @@
-id,nome
-0,Atletismo
-1,Badminton
-2,Basquete
-3,Basquete 3x3
-4,Beisebol/Softbol
-5,Boxe
-6,Canoagem de Velocidade
-7,Canoagem Slalom
-8,Ciclismo BMX Freestyle
-9,Ciclismo BMX Racing
-10,Ciclismo de Estrada
-11,Ciclismo de Pista
-12,Ciclismo Mountain Bike
-13,Escalada
-14,Esgrima
-15,Futebol
-16,Ginástica Artística
-17,Ginástica de Trampolim
-18,Ginástica Rítmica
-19,Golfe
-20,Handebol
-21,Hipismo
-22,Hóquei sobre Grama
-23,Judô
-24,Karatê
-25,Levantamento de Peso
-26,Luta
-27,Maratona Aquática
-28,Nado Artístico
-29,Natação
-30,Pentatlo Moderno
-31,Polo Aquático
-32,Remo
-33,Rugby Sevens
-34,Saltos Ornamentais
-35,Skate
-36,Surfing
-37,Taekwondo
-38,Tênis
-39,Tênis de Mesa
-40,Tiro com Arco
-41,Tiro Esportivo
-42,Triatlo
-43,Vela
-44,Vôlei
-45,Vôlei de Praia
+id,esporte_pt
+athletics,Atletismo
+badminton,Badminton
+basketball,Basquete
+3x3-basketball,Basquete 3x3
+baseball-softball,Beisebol/Softbol
+boxing,Boxe
+canoe-sprint,Canoagem de Velocidade
+canoe-slalom,Canoagem Slalom
+cycling-bmx-freestyle,Ciclismo BMX Freestyle
+cycling-bmx-racing,Ciclismo BMX Racing
+cycling-road,Ciclismo de Estrada
+cycling-track,Ciclismo de Pista
+cycling-mountain-bike,Ciclismo Mountain Bike
+sport-climbing,Escalada
+fencing,Esgrima
+football,Futebol
+artistic-gymnastics,Ginástica Artística
+trampoline-gymnastics,Ginástica de Trampolim
+rhythmic-gymnastics,Ginástica Rítmica
+golf,Golfe
+handball,Handebol
+equestrian,Hipismo
+hockey,Hóquei sobre Grama
+judo,Judô
+karate,Karatê
+weightlifting,Levantamento de Peso
+wrestling,Luta
+marathon-swimming,Maratona Aquática
+artistic-swimming,Nado Artístico
+swimming,Natação
+modern-pentathlon,Pentatlo Moderno
+water-polo,Polo Aquático
+rowing,Remo
+rugby-sevens,Rugby Sevens
+diving,Saltos Ornamentais
+skateboarding,Skate
+surfing,Surfing
+taekwondo,Taekwondo
+tennis,Tênis
+table-tennis,Tênis de Mesa
+archery,Tiro com Arco
+shooting,Tiro Esportivo
+triathlon,Triatlo
+sailing,Vela
+volleyball,Vôlei
+beach-volleyball,Vôlei de Praia
