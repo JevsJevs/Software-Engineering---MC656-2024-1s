@@ -57,6 +57,10 @@ class MedalTableByCategory(MedalTable):
             table = csv.DictReader(f)
             return [entry for entry in table if entry["Category"] == category]
 
+@app.route("/", methods=["GET"])
+def home():
+    return "<h1>Hello World - Welcome to our project</h1>"
+
 @app.route("/medals/<country>", methods=["GET"])
 def medals_by_country(country):
     querry = MedalTableCurrent().get_country(country)
