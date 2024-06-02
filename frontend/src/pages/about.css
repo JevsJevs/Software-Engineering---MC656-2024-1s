@@ -1,0 +1,19 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+  }
+  
+  .last-paragraph {
+    text-align: center;
+    text-align: justify;
+  }  
+  
+  .about-container h1 {
+    grid-column: 1 / -1;
+  }
+  

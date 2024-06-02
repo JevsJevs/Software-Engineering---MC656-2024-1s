@@ -1,0 +1,74 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+.teams-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teams-item {
+  margin: 60px; /* Aumentei a margem para 60px */
+  flex: 1 1 300px; /* Aumentei a largura mínima para 300px */
+}
+
+.team-info {
+  border: 1px solid #ccc;
+  padding: 20px; /* Aumentei o padding para 20px */
+  display: flex;
+  flex-direction: row; /* Alinhar elementos em linha */
+  align-items: center;
+  text-align: left;
+  min-height: 150px; /* Defini uma altura mínima para as caixas */
+}
+
+.name, .athletes {
+  margin: 5px 0; /* Adicionei margem entre os textos */
+}
+
+.image {
+  width: 100px; /* Aumentei a largura da imagem para 100px */
+  margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.image-container {
+  flex-shrink: 0;
+}
+
+.details {
+  text-align: left; 
+}
+
+@media (max-width: 600px) {
+  .title {
+      font-size: 1.5em;
+  }
+  .teams-item {
+      flex: 1 1 150px; 
+  }
+  .image {
+      width: 70px;
+  }
+  .team-info {
+      flex-direction: column; 
+      text-align: center;
+      min-height: 200px; 
+  }
+  .image {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+  .details {
+      text-align: center;
+  }
+}

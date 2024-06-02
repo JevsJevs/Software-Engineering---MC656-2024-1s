@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import jsonify
-import csv
 import sqlite3
-
 
 app = Flask(__name__)
 

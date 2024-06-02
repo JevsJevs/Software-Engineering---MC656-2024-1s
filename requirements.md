@@ -55,7 +55,6 @@ Dessa forma, considerando esses critérios e os sites analisados foram identific
    - Os usuários podem personalizar sua experiência, filtrando os resultados por esportes ou países, por exemplo.
 
 4. **Desempenho e Velocidade:**
-   - Os sites carregam rapidamente, garantindo uma experiência fluida para os usuários, mesmo em conexões de internet mais lentas.
    - Os sites são otimizados para uma performance eficiente, minimizando o tempo de resposta e garantindo uma navegação suave.
 
 ## 2. Especificação de Personas
@@ -112,8 +111,27 @@ Outro artefato que utilizamos foi a construção de personas. Durante uma sessã
 
 ## 3. Entrevistas
 
-Além disso, também entrevistamos alguns indivíduos para elicitar requisitos do ponto de vista de um usuário comum. Segue o link para as entrevistas em um drive:
+As entrevistas foram planejadas para receber por parte dos usuários as demandas mais comuns que nosso sistema deveria suprir.
 
-[Entrevista 1](https://drive.google.com/file/d/1MpxjKBWM1Tb3dFBTu8QZojGz5MDwl8RL/view?usp=sharing)
-[Entrevista 2](https://drive.google.com/file/d/13KJNjnwSL220n4Oqv0FmQ0KW-c45IhO1/view?usp=sharing)
-[Entrevista 3](https://drive.google.com/file/d/13JdPSHgrvqM3rn5NA35R8P0O3ciCVXgv/view?usp=sharing)
+Para tal, direcionamos a conversa nos seguintes tópicos:
+- **Pergunta 1:** O que você gostaria de ver na página inicial do site.
+- **Pergunta 2:** Quais informações você acessaria com maior frequência?
+- **Pergunta 3:** Que outras informações você acha de relevância para o site?
+- **Pergunta 4:** Quantos acessos diários você faria ao site em média?
+- **Pergunta 5:** Que paleta de cores você acredita representar melhor as Olimpíadas?
+
+Os entrevistados consentiram com a gravação das entrevistas. O material gerado está disponível no link abaixo
+
+Tendo em vista as informações levantadas pela pesquisa realizada, pudemos compreender melhor as necessidades dos nossos usuários.
+Dentre os pontos mais populares estão:
+
+- Exibição dos próximos jogos do dia na aba inicial do site, bem como as últimas notícias sobre as Olimpíadas
+- Mostrar históricos das competições já finalizadas
+- Incorporar as cores da bandeira francesa no site para maior identificação com o evento
+- Suportar em média 3 visitas diárias por usuário
+
+
+Baseado nessas informações, foi possível amadurecer as histórias dos usuários e gerar issues voltadas diretamente às suas necessidades. 
+
+
+[Entrevistas](https://drive.google.com/drive/folders/1k7JpCP0-SR4Fpnad7-9ca20NY3pzEpXN)
