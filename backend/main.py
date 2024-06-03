@@ -1,8 +1,12 @@
 from flask import Flask
 from flask import jsonify
 import sqlite3
+import os
 
 app = Flask(__name__)
+
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'banco.db')
 
 @app.route("/")
 def basePath():
@@ -10,7 +14,7 @@ def basePath():
 
 @app.route("/medals", methods=["GET"])
 def medals():
-    cx = sqlite3.connect("database/banco.db")
+    cx = sqlite3.connect(DB_PATH)
     cur = cx.cursor()
     cur.execute("""
         SELECT noc.nome as NOC, 
@@ -26,11 +30,12 @@ def medals():
     results = cur.fetchall()
     cur.close()
     cx.close()
+    results = jsonify(results)
     return results
 
 @app.route("/medals/<country>", methods=["GET"])
 def medals_by_country(country):
-    cx = sqlite3.connect("database/banco.db")
+    cx = sqlite3.connect(DB_PATH)
     cur = cx.cursor()
     cur.execute("""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
@@ -50,7 +55,7 @@ def medals_by_country(country):
 
 @app.route("/medals/top/<int:n>", methods=["GET"])
 def medals_top(n):
-    cx = sqlite3.connect("database/banco.db")
+    cx = sqlite3.connect(DB_PATH)
     cur = cx.cursor()
     cur.execute("""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
@@ -71,7 +76,7 @@ def medals_top(n):
 @app.route("/medals/ratio", methods=["GET"])
 def medals_ratio():
     # Retorna os países ordenados pelo razão de ouro/total
-    cx = sqlite3.connect("database/banco.db")
+    cx = sqlite3.connect(DB_PATH)
     cur = cx.cursor()
     cur.execute("""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
@@ -92,7 +97,7 @@ def medals_ratio():
 @app.route("/medals/category/<category>", methods=["GET"])
 def medals_by_category(category):
     # Retorna os países ordenados pelo número de medalhas em uma dada categoria(ex: basquete, basquete 3x3, atletismo)
-    cx = sqlite3.connect("database/banco.db")
+    cx = sqlite3.connect(DB_PATH)
     cur = cx.cursor()
     cur.execute("""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
