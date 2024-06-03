@@ -1,73 +1,118 @@
 from flask import Flask
-import csv
+from flask import jsonify
 import sqlite3
-
-cx = sqlite3.connect("database/teste.db")
+import os
 
 app = Flask(__name__)
+
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+DB_PATH = os.path.join(PROJECT_ROOT, 'database', 'banco.db')
 
 @app.route("/")
 def basePath():
     return "<h1>Hello World - Welcome to our project</h1>"
 
-@app.route("/medals/<country>", methods=["GET"])
-def medals_by_country(country):
-    with open("../lib/Olympics_Medal_Table.csv") as f:
-        table = csv.DictReader(f)
-        for entry in table:
-            if entry["NOC"] == country:
-                return entry
-        return {"error": f"country '{country}' does not exist"}, 404
-            
 @app.route("/medals", methods=["GET"])
 def medals():
-    with open("../lib/Olympics_Medal_Table.csv") as f:
-        table = csv.DictReader(f)
-        return list(table)
+    cx = sqlite3.connect(DB_PATH)
+    cur = cx.cursor()
+    cur.execute("""
+        SELECT noc.nome as NOC, 
+               SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
+               SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
+               SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+        FROM noc
+        JOIN atleta ON noc.codigo = atleta.noc
+        JOIN medalha ON atleta.id = medalha.atleta
+        GROUP BY noc.nome
+        ORDER BY Ouro DESC, Prata DESC, Bronze DESC
+    """)
+    results = cur.fetchall()
+    cur.close()
+    cx.close()
+    results = jsonify(results)
+    return results
+
+@app.route("/medals/<country>", methods=["GET"])
+def medals_by_country(country):
+    cx = sqlite3.connect(DB_PATH)
+    cur = cx.cursor()
+    cur.execute("""SELECT noc.nome as NOC, 
+                          SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
+                          SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
+                          SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+                   FROM noc
+                   JOIN atleta ON noc.codigo = atleta.noc
+                   JOIN medalha ON atleta.id = medalha.atleta
+                   WHERE noc.nome = ?
+                   GROUP BY noc.nome
+                   ORDER BY Ouro DESC, Prata DESC, Bronze DESC
+    """, (country,))
+    results = cur.fetchall()
+    cur.close()
+    cx.close()
+    return results
 
 @app.route("/medals/top/<int:n>", methods=["GET"])
-def top_n(n):
-    # Retorna os n países com mais medalhas de ouro
-    with open("../lib/Olympics_Medal_Table.csv") as f:
-        table = csv.DictReader(f)
-        ranking = sorted(table, key=lambda x: int(x["Gold"]), reverse=True)
-        return ranking[:n]
-        
+def medals_top(n):
+    cx = sqlite3.connect(DB_PATH)
+    cur = cx.cursor()
+    cur.execute("""SELECT noc.nome as NOC, 
+                          SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
+                          SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
+                          SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+                   FROM noc
+                   JOIN atleta ON noc.codigo = atleta.noc
+                   JOIN medalha ON atleta.id = medalha.atleta
+                   GROUP BY noc.nome
+                   ORDER BY Ouro DESC, Prata DESC, Bronze DESC
+                   LIMIT ?
+    """, (n,))
+    results = cur.fetchall()
+    cur.close()
+    cx.close()
+    return results
+
 @app.route("/medals/ratio", methods=["GET"])
 def medals_ratio():
     # Retorna os países ordenados pelo razão de ouro/total
-    with open("../lib/Olympics_Medal_Table.csv") as f:
-        table = csv.DictReader(f)
-        ranking = sorted(table, key=lambda x: int(x["Gold"]) / int(x["Total"]), reverse=True)
-        return ranking
-    
-@app.route("/medals/compare", methods=["GET"])
-def medals_compare():
-    # Retorna o top 10 (provisoriamente) de medalhas de ouro dos jogos atuais e da última edição
-    with open("../lib/Olympics_Medal_Table.csv") as f:
-        table = csv.DictReader(f)
-        ranking = sorted(table, key=lambda x: int(x["Gold"]), reverse=True)[:10]
-        f.close()
-    with open("../lib/Olympics_Medal_Table_Past.csv") as f:
-        table = csv.DictReader(f)
-        ranking_past = sorted(table, key=lambda x: int(x["Gold"]), reverse=True)[:10]
-        f.close()
-    return {"current": ranking, "past": ranking_past}
+    cx = sqlite3.connect(DB_PATH)
+    cur = cx.cursor()
+    cur.execute("""SELECT noc.nome as NOC, 
+                          SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
+                          SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
+                          SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze,
+                          COUNT(medalha.tipo) as Total
+                   FROM noc
+                   JOIN atleta ON noc.codigo = atleta.noc
+                   JOIN medalha ON atleta.id = medalha.atleta
+                   GROUP BY noc.nome
+                   ORDER BY Ouro/Total DESC
+    """)
+    results = cur.fetchall()
+    cur.close()
+    cx.close()
+    return results
 
-# Daqui pra baixo não funcional apenas com o csv que temos    
 @app.route("/medals/category/<category>", methods=["GET"])
 def medals_by_category(category):
-    with open("../lib/Olympics_Medal_Table.csv") as f: # substituir isso por uma busca no db de medalhas
-        table = csv.DictReader(f)
-        return [entry for entry in table if entry["Category"] == category]
-    
-@app.route("/medals/continent/<continent>", methods=["GET"])
-def medals_by_continent(continent):
-    with open("../lib/Olympics_Medal_Table.csv") as f: # substituir isso por um join para pegar os continentes
-        table = csv.DictReader(f)
-        ranking = [entry for entry in table if entry["Continent"] == continent]
-        ranking.append({"Total": sum(int(entry["Total"]) for entry in ranking), 
-                        "Gold": sum(int(entry["Gold"]) for entry in ranking), 
-                        "Silver": sum(int(entry["Silver"]) for entry in ranking), 
-                        "Bronze": sum(int(entry["Bronze"]) for entry in ranking)})
-        return ranking
+    # Retorna os países ordenados pelo número de medalhas em uma dada categoria(ex: basquete, basquete 3x3, atletismo)
+    cx = sqlite3.connect(DB_PATH)
+    cur = cx.cursor()
+    cur.execute("""SELECT noc.nome as NOC, 
+                          SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
+                          SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
+                          SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+                   FROM noc
+                   JOIN atleta ON noc.codigo = atleta.noc
+                   JOIN medalha ON atleta.id = medalha.atleta
+                   JOIN evento ON medalha.evento = evento.id
+                   JOIN esporte ON evento.esporte = esporte.id
+                   WHERE esporte.nome = ?
+                   GROUP BY noc.nome
+                   ORDER BY Ouro DESC, Prata DESC, Bronze DESC
+    """, (category,))
+    results = cur.fetchall()
+    cur.close()
+    cx.close()
+    return results
