@@ -58,7 +58,15 @@ def medals_by_country(country):
                    GROUP BY noc.nome
                    ORDER BY Ouro DESC, Prata DESC, Bronze DESC
     """, (country,))
-    result = { "country": cur.fetchone() }
+    row = cur.fetchone()
+    result = {
+        "country": {
+            "nome": row[0],
+            "ouro": row[1],
+            "prata": row[2],
+            "bronze": row[3],
+        }
+    }
     cur.close()
     cx.close()
 
