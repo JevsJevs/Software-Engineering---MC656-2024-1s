@@ -1,13 +1,94 @@
 .home-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.home-container img {
-    width: 400px;
-    padding: 24px;
+.banner {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.news-carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.news-item {
+  min-width: 300px;
+  margin: 0 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.news-item.active {
+  display: flex;
+}
+
+.news-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.all-news-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.events, .facts, .watch-locations, .sponsors {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-cards, .fact-cards, .location-cards, .sponsor-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.event-card, .fact-card, .location-card, .sponsor-card {
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.location-card img, .sponsor-card img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
 }

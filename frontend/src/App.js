@@ -7,6 +7,7 @@ import About from "./pages/about";
 import Teams from "./pages/teams";
 import Sports from "./pages/sports";
 import Table from "./pages/table";
+import News from "./pages/news";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/table" element={<Table />} />
         <Route path="/sports" element={<Sports />} />
         <Route path="/teams" element={<Teams />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </Router>
   );
