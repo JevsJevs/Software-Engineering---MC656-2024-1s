@@ -8,7 +8,6 @@ def get_athlete_id(url: str):
 def esportes(cx: sqlite3.Connection):
     with open("scrapping/esportes.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
-        cx.execute("DELETE FROM esporte")
         for line in reader:
             cx.execute(
                 "INSERT OR IGNORE INTO esporte (id, nome) VALUES (:id, :esporte_pt)",
@@ -18,24 +17,17 @@ def esportes(cx: sqlite3.Connection):
 def eventos(cx: sqlite3.Connection):
     with open("scrapping/eventos2.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
-        cx.execute("DELETE FROM evento")
-        for line in reader:
-            cx.execute(
-                "INSERT INTO evento (id, nome, esporte) VALUES (:evento_id, :evento_pt, :esporte_id)",
-                line
-            )
-            if line["esporte_id"] == "football":
-                print(cx.execute("select * from evento where id='football'").fetchall())
-        
+        cx.executemany(
+            "INSERT OR IGNORE INTO evento (id, nome, esporte) VALUES (:evento_id, :evento_pt, :esporte_id)",
+            reader
+        )
         cx.commit()
 
 def paises(cx: sqlite3.Connection):
     with (open("scrapping/noc_pt.csv") as g):
         reader = csv.DictReader(g, lineterminator='\n')
-        cx.execute("DELETE FROM noc")
         sql = "INSERT OR IGNORE INTO noc(codigo, nome) VALUES (:codigo, :nome)"
         for line in reader:
-            line["nome"] = line["nome"].split("\n")[0]
             cx.execute(sql, line)
             
 
@@ -58,13 +50,12 @@ def medals(cx: sqlite3.Connection):
     with open("scrapping/kaggle/medals.csv") as f:
         reader = csv.DictReader(f, lineterminator='\n')
         cx.execute("DELETE FROM medalha")
-        sql = "INSERT OR IGNORE INTO medalha(evento, atleta, tipo, esporte) values (?, ?, ?, ?)"
+        sql = "INSERT OR IGNORE INTO medalha(evento, atleta, tipo) values (?, ?, ?)"
         for line in reader:
             evento = get_event_id(line["event"], line["discipline"])
-            esporte = get_event_id(line["discipline"], line["discipline"])
             atleta = get_athlete_id(line["athlete_link"])
             tipo = ["O", "P", "B"][int(line["medal_code"]) - 1]
-            cx.execute(sql, [evento, atleta, tipo, esporte])
+            cx.execute(sql, [evento, atleta, tipo])
         cx.commit()
 
 if __name__ == "__main__":
@@ -72,6 +63,6 @@ if __name__ == "__main__":
     # esportes(cx)
     # eventos(cx)
     # paises(cx)
-    # atletas(cx)
+    atletas(cx)
     medals(cx)
     cx.close()
