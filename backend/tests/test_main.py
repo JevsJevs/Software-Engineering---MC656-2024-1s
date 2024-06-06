@@ -9,10 +9,8 @@ def test_checkHome():
 
 def test_checkCountryMedal():
     instance = app.test_client()
-    resp = instance.get("/medals/BRA")
-    jsonRoot = resp.get_json()
-    data = jsonRoot["country"]
-    print(data)
+    resp = instance.get("/medals/Brazil")
+    data = resp.get_json()
     assert resp.status_code == 200
-    assert data["nome"] == "Brasil"
-    assert data["ouro"] + data["prata"] + data["bronze"] == 55
+    assert data["NOC"] == "Brazil"
+    assert data["Total"] == "21"
