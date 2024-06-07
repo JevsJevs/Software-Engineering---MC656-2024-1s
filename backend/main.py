@@ -1,18 +1,13 @@
 from flask import Flask
 from flask import jsonify
-import sqlite3
 from models import *
 from database.DBConnector import * 
 
 app = Flask(__name__)
 
-@app.route("/")
-def basePath():
-    singletonCon = DBConnect()
-
-    singletonTwo = DBConnect()
-
-    return f"<h1>IS singleton? {singletonCon is singletonTwo} </h1>"
+@app.route("/", methods=["GET"])
+def home():
+    return "<h1>Hello World - Welcome to our project</h1>"
 
 @app.route("/medals", methods=["GET"])
 def medals():
