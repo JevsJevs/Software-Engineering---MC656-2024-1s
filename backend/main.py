@@ -133,8 +133,8 @@ def medals_by_category(category):
                         FROM noc
                         JOIN atleta ON noc.codigo = atleta.noc
                         JOIN medalha ON atleta.id = medalha.atleta
-                        JOIN esporte ON medalha.esporte = esporte.id
-                        JOIN evento ON medalha.evento = evento.id AND Medalha.esporte = evento.esporte
+                        JOIN esporte ON evento.esporte = esporte.id
+                        JOIN evento ON medalha.evento = evento.id
                         WHERE esporte.id = "{str(category)}"
                         GROUP BY noc.nome
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
