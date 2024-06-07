@@ -9,11 +9,11 @@ def test_checkHome():
 
 def test_checkCountryMedal():
     instance = app.test_client()
-    resp = instance.get("/medals/Brasil")
-    #TODO: The API must return the data models correctly
-    jsonRoot = resp.get_json()
-    data = jsonRoot[0]
-    print(data)
+    resp = instance.get("/medals/BRA")
+    data = resp.get_json()
+    data = data["country"]
     assert resp.status_code == 200
-    assert data[0] == "Brasil"
-    assert sum(data[1:]) == 55
+    assert data["nome"] == "Brasil"
+    assert data["ouro"] == 29
+    assert data["prata"] == 17
+    assert data["bronze"] == 9
