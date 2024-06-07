@@ -15,7 +15,7 @@ Aqui, cada componente do tipo controller aguarda ser contatado pela web page. Qu
 
 ### REST
 O estilo arquitetural REST (Representational State Transfer) é uma abordagem para a construção de sistemas distribuídos e serviços web que utiliza as tecnologias e os protocolos da web, em especial o HTTP, para comunicação. No REST, os recursos são as entidades centrais, identificadas por URIs (Uniform Resource Identifiers), e as operações sobre esses recursos são realizadas através dos métodos HTTP
-![Diagrama do Estilo Arquitetural](lib\Diagrama_Arquitetura.jpg)
+![Diagrama do Estilo Arquitetural](lib/Diagrama_Arquitetura.jpg)
 
 ### Padrão de Projeto
 Decidimos utilizar o padrão de projeto "Singleton", implementado no nosso componente de acesso à database. Assim, sempre há uma e apenas uma conexão com a database, evitando erros e incosistências
