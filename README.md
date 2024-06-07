@@ -8,9 +8,9 @@
 
 ## Estilo arquitetural e padrões de projeto
 ### Diagrama C4
-![Nível 1 - Contexto](lib\C4_Contexto.png)
-![Nível 2 - Container](lib\C4_Container.png)
-![Nível 3 - Componente](lib\C4_Componente.png)
+![Nível 1 - Contexto](lib/C4_Contexto.png)
+![Nível 2 - Container](lib/C4_Container.png)
+![Nível 3 - Componente](lib/C4_Componente.png)
 Aqui, cada componente do tipo controller aguarda ser contatado pela web page. Quando seu endpoint é acessado, o controller então envia a querry relativa à sua função para o componente responsável por acessar a database, que por sua vez executa a querry e retorna o resultado
 
 ### REST
