@@ -1,0 +1,69 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+.sports-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sports-item {
+  text-align: center;
+  margin: 60px;
+  flex: 1 1 250px;
+}
+
+.sport-info {
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 300px;
+  justify-content: center;
+  box-sizing: border-box; 
+}
+
+.name {
+  margin-bottom: 5px;
+}
+
+.image {
+  width: 150px;
+  padding: 24px;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+@media (max-width: 600px) {
+  .title {
+      font-size: 1.5em;
+  }
+  .sports-item {
+      flex: 1 1 150px;
+  }
+  .image {
+      width: 100px;
+  }
+  .sport-info {
+      min-height: 200px;
+  }
+}
