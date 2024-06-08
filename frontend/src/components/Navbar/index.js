@@ -2,11 +2,13 @@
 
 import React from "react";
 import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements.js";
+import logo from "../../assets/The Paris 2024 Summer Olympics and Paralympics.png";
 
 const Navbar = () => {
   return (
     <>
       <Nav>
+      <img src={logo} alt="Logo" style={{ height: '85px'}} /> 
         <Bars />
         <NavMenu>
           <NavLink to="/" activeStlye>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import './index.css';
+import { useNavigate } from "react-router-dom";
+import "./index.css";
 import { news } from "../data/news_data.js";
 import { events } from "../data/events_data.js";
 import { facts } from "../data/facts_data.js";
@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % news.length);
-    }, 3000); 
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,7 +46,10 @@ const Home = () => {
                 index === currentNewsIndex ? "active" : ""
               }`}
             >
-              <img src={item.image} alt={item.title} />
+              <img
+                src={require(`../assets/news/${item.image}`)}
+                alt={item.title}
+              />
               <h2>{item.title}</h2>
             </div>
           ))}
