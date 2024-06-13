@@ -1,3 +1,8 @@
+body {
+  background: url('../assets/background.webp') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -7,9 +12,11 @@
 
 .banner {
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
   position: relative;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .news-carousel {
@@ -24,9 +31,13 @@
   min-width: 300px;
   margin: 0 10px;
   display: none;
-  flex-direction: column;
+  flex-direction: row; /* Alinhar a imagem e o texto horizontalmente */
   align-items: center;
   transition: opacity 0.5s ease-in-out;
+  border: 2px solid #ccc; /* Adicionar borda ao redor do conjunto de imagem e texto */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #d6c278;
 }
 
 .news-item.active {
@@ -34,8 +45,18 @@
 }
 
 .news-item img {
-  width: 100%;
+  max-width: 500px; /* Ajuste o tamanho da imagem conforme necessário */
+  max-height: 500px;
+  width: auto;
   height: auto;
+  margin-right: 20px; /* Espaçamento entre a imagem e o título */
+}
+
+.news-item h2 {
+  margin: 0;
+  flex-grow: 1; /* O título ocupa o espaço restante */
+  text-align: left; /* Alinhar o texto à esquerda */
+  color: white;
 }
 
 .carousel-control {
@@ -64,6 +85,9 @@
   color: white;
   border: none;
   cursor: pointer;
+  display: block; /* Certifique-se de que é um bloco para ocupar a largura disponível */
+  margin-left: auto; /* Centralizar horizontalmente */
+  margin-right: auto; /* Centralizar horizontalmente */
 }
 
 .events, .facts, .watch-locations, .sponsors {
@@ -71,6 +95,11 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+.events h2, .facts h2, .watch-locations h2, .sponsors h2 {
+  color: white; /* Altera a cor do texto para branco */
+}
+
 
 .event-cards, .fact-cards, .location-cards, .sponsor-cards {
   display: flex;
@@ -85,6 +114,7 @@
   border-radius: 8px;
   width: 200px;
   text-align: center;
+  background-color: #d6c278;
 }
 
 .location-card img, .sponsor-card img {

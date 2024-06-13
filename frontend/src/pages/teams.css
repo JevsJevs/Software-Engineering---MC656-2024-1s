@@ -18,27 +18,29 @@
 }
 
 .teams-item {
-  margin: 60px; /* Aumentei a margem para 60px */
-  flex: 1 1 300px; /* Aumentei a largura mínima para 300px */
+  margin: 60px;
+  flex: 1 1 300px;
 }
 
 .team-info {
   border: 1px solid #ccc;
-  padding: 20px; /* Aumentei o padding para 20px */
+  padding: 20px;
   display: flex;
-  flex-direction: row; /* Alinhar elementos em linha */
-  align-items: center;
-  text-align: left;
-  min-height: 150px; /* Defini uma altura mínima para as caixas */
+  flex-direction: column; /* Mudei para coluna */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  text-align: center; /* Centraliza o texto */
+  min-height: 150px;
+  background-color: #e6b68b;
 }
 
 .name, .athletes {
-  margin: 5px 0; /* Adicionei margem entre os textos */
+  margin: 5px 0;
 }
 
 .image {
-  width: 100px; /* Aumentei a largura da imagem para 100px */
-  margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+  width: 100px;
+  margin-bottom: 10px; /* Margem inferior em vez de margem direita */
 }
 
 .image-container {
@@ -46,7 +48,7 @@
 }
 
 .details {
-  text-align: left; 
+  text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -54,15 +56,15 @@
       font-size: 1.5em;
   }
   .teams-item {
-      flex: 1 1 150px; 
+      flex: 1 1 150px;
   }
   .image {
       width: 70px;
   }
   .team-info {
-      flex-direction: column; 
+      flex-direction: column;
       text-align: center;
-      min-height: 200px; 
+      min-height: 200px;
   }
   .image {
       margin-right: 0;
