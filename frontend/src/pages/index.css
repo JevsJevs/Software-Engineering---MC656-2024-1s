@@ -1,6 +1,7 @@
 body {
   background: url('../assets/background.webp') no-repeat center center fixed;
   background-size: cover;
+  background-color: rgba(230, 182, 139, 0.8); 
 }
 
 .home-container {
@@ -56,7 +57,7 @@ body {
   margin: 0;
   flex-grow: 1; /* O título ocupa o espaço restante */
   text-align: left; /* Alinhar o texto à esquerda */
-  color: white;
+  color: black;
 }
 
 .carousel-control {
@@ -97,7 +98,8 @@ body {
 }
 
 .events h2, .facts h2, .watch-locations h2, .sponsors h2 {
-  color: white; /* Altera a cor do texto para branco */
+  color: black; /* Altera a cor do texto para branco */
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9);
 }
 
 
@@ -107,13 +109,25 @@ body {
   flex-wrap: wrap;
 }
 
-.event-card, .fact-card, .location-card, .sponsor-card {
+.event-card, .fact-card {
   margin: 10px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 200px;
   text-align: center;
+  background-color: #d6c278;
+}
+
+.location-card, .sponsor-card {
+  display: flex;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
   background-color: #d6c278;
 }
 
