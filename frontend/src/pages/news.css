@@ -105,3 +105,19 @@
 .close-modal-button:hover {
     background-color: #0056b3;
 }
+
+.create-news-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-news-button:hover {
+    background-color: #218838;
+}

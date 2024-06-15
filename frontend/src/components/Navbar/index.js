@@ -2,8 +2,7 @@
 
 import React from "react";
 import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements.js";
-import logo from "../../assets/The Paris 2024 Summer Olympics and Paralympics.png";
-
+import logo from "../../assets/Paris2024_OlyEmbleme_RVB_Mono_Noir_2021.png.png";
 const Navbar = () => {
   return (
     <>

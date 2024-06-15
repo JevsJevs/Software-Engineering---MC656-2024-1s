@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import './newsModal.css';
 
 const NewsModal = ({ isOpen, closeModal, selectedNews }) => (
   <Modal
@@ -10,7 +11,7 @@ const NewsModal = ({ isOpen, closeModal, selectedNews }) => (
     overlayClassName="news-overlay"
   >
     <h2>{selectedNews.title}</h2>
-    <img src={selectedNews.image} alt={selectedNews.title} />
+    <img src={require(`../../assets/news/${selectedNews.image}`)} alt={selectedNews.title} />
     <p>{selectedNews.content}</p>
     <button onClick={closeModal} className="close-modal-button">Fechar</button>
   </Modal>
