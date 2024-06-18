@@ -50,20 +50,25 @@ def medals_by_country(country):
 
     db = DBConnect()
     queryRes = db.runQuery(endpointQuerySql)
-    row = queryRes.pop(0)
-    result = {
-        "country": {
-            "nome": row[0],
-            "ouro": row[1],
-            "prata": row[2],
-            "bronze": row[3],
+    try:
+        row = queryRes.pop(0)
+        result = {
+            "country": {
+                "nome": row[0],
+                "ouro": row[1],
+                "prata": row[2],
+                "bronze": row[3],
+            }
         }
-    }
+    except Exception:
+        result = {"error": f"NOC de código '{country}' não existe."}, 404
 
     return result
 
 @app.route("/medals/top/<int:n>", methods=["GET"])
 def medals_top(n):
+    if n <= 0:
+        return {"error": "Número de medalhas deve ser maior que 0"}, 400
     endpointQuerySql = f"""SELECT noc.nome as pais,
                             noc.codigo as codigo,
                             SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
