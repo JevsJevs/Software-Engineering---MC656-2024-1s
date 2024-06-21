@@ -31,7 +31,7 @@
   justify-content: center; /* Centraliza o conteúdo verticalmente */
   text-align: center; /* Centraliza o texto */
   min-height: 150px;
-  background-color: #e6b68b;
+  background-color: rgba(230, 182, 139, 0.8); ;
 }
 
 .name, .athletes {

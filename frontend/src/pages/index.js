@@ -93,8 +93,7 @@ const Home = () => {
           {watchLocations.map((location) => (
             <div key={location.id} className="location-card">
               <a href={location.link} target="_blank" rel="noopener noreferrer">
-                <img src={location.logo} alt={location.name} />
-                <p>{location.name}</p>
+                <img src={require(`../assets/watch/${location.logo}`)} alt={location.name} />
               </a>
             </div>
           ))}
@@ -107,8 +106,7 @@ const Home = () => {
           {sponsors.map((sponsor) => (
             <div key={sponsor.id} className="sponsor-card">
               <a href={sponsor.link} target="_blank" rel="noopener noreferrer">
-                <img src={sponsor.logo} alt={sponsor.name} />
-                <p>{sponsor.name}</p>
+                <img src={require(`../assets/sponsors/${sponsor.logo}`)} alt={sponsor.name} />
               </a>
             </div>
           ))}

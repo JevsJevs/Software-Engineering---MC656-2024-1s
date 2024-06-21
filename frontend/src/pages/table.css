@@ -4,7 +4,8 @@
   justify-content: default;
   align-items: center;
   height: 100vh;
-  color: white;
+  color: black;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 1.0);
 }
 
 .table-container img {
@@ -16,7 +17,7 @@ table {
   border: 4px solid gold;
   width: 800px;
   height: 200px;
-  background-color: #e6b68b;
+  background-color: rgba(230, 182, 139, 0.8); ;
 }
 
 th {
