@@ -14,7 +14,7 @@ install:
 run:
 	$(FLASK) --app main run
 
-# Target: Run unit tests (obs: there are no tests)
+# Target: Run unit tests
 test:
 	$(PYTHON) -m pytest -s tests/
 

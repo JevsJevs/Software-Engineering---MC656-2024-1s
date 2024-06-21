@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort
 from flask import jsonify
 from models import *
 from database.DBConnector import * 
@@ -122,10 +122,15 @@ def medals_ratio():
             "bronze": row[4],
             "ratio": row[2] / (row[2] + row[3] + row[4])
         })
-    return result
+    result = sorted(result["table"], key= lambda result : result["ratio"], reverse=True)
+    return {"table": result}
 
 @app.route("/medals/category/<category>", methods=["GET"])
 def medals_by_category(category):
+    #treat input
+    if(len(category) == 0):
+        abort(400)
+
     # Retorna os países ordenados pelo número de medalhas em uma dada categoria(ex: basquete, basquete 3x3, atletismo)
     endpointQuerySql = f"""SELECT noc.nome as nome,
                             noc.codigo as codigo, 
