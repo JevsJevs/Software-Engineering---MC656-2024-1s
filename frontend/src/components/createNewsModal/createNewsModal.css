@@ -1,0 +1,42 @@
+
+.news-modal input[type="text"],
+.news-modal textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.news-modal input[type="file"] {
+    margin: 10px 0;
+}
+
+.news-modal button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.news-modal button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.close-modal-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-modal-button:hover {
+    background-color: #0056b3;
+}

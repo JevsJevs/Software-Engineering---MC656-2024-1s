@@ -5,15 +5,14 @@ import logo from "../assets/The Paris 2024 Summer Olympics and Paralympics.png";
 const Table = () => {
   const [tableRows, setTableRows] = useState([]);
   const [values, setValues] = useState([]);
-
+  
   const parseCSV = (str) => {
     const rows = str.split('\n').filter(Boolean);
     const header = rows[0].split(',');
     const values = rows.slice(1).map(row => row.split(','));
-
+  
     return { header, values };
   };
-
   useEffect(() => {
     fetch("./Olympics_Medal_Table.csv")
       .then((response) => response.text())

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort
 from flask import jsonify
 from models import *
 from database.DBConnector import * 
@@ -37,6 +37,8 @@ def medals():
 
 @app.route("/medals/<country>", methods=["GET"])
 def medals_by_country(country):
+    if len(country) != 3:
+        return {"error": "Código de país deve ter 3 caracteres."}, 400
     endpointQuerySql = f"""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
                           SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
@@ -50,20 +52,25 @@ def medals_by_country(country):
 
     db = DBConnect()
     queryRes = db.runQuery(endpointQuerySql)
-    row = queryRes.pop(0)
-    result = {
-        "country": {
-            "nome": row[0],
-            "ouro": row[1],
-            "prata": row[2],
-            "bronze": row[3],
+    try:
+        row = queryRes.pop(0)
+        result = {
+            "country": {
+                "nome": row[0],
+                "ouro": row[1],
+                "prata": row[2],
+                "bronze": row[3],
+            }
         }
-    }
+    except Exception:
+        result = {"error": f"NOC de código '{country}' não existe."}, 404
 
     return result
 
 @app.route("/medals/top/<int:n>", methods=["GET"])
 def medals_top(n):
+    if n <= 0:
+        return {"error": "Número de medalhas deve ser maior que 0"}, 400
     endpointQuerySql = f"""SELECT noc.nome as pais,
                             noc.codigo as codigo,
                             SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
@@ -115,10 +122,15 @@ def medals_ratio():
             "bronze": row[4],
             "ratio": row[2] / (row[2] + row[3] + row[4])
         })
-    return result
+    result = sorted(result["table"], key= lambda result : result["ratio"], reverse=True)
+    return {"table": result}
 
 @app.route("/medals/category/<category>", methods=["GET"])
 def medals_by_category(category):
+    #treat input
+    if(len(category) == 0):
+        abort(400)
+
     # Retorna os países ordenados pelo número de medalhas em uma dada categoria(ex: basquete, basquete 3x3, atletismo)
     endpointQuerySql = f"""SELECT noc.nome as nome,
                             noc.codigo as codigo, 

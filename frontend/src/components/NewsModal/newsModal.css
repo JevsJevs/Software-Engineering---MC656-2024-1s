@@ -1,0 +1,81 @@
+.news-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%; /* Reduzido de 90% para 80% */
+    width: 80%; /* Reduzido de 100% para 80% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-height: 80%; /* Reduzido de 90% para 80% */
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo for maior que a altura */
+  }
+  
+  .news-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+  }
+  
+  .news-modal h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .news-modal img {
+    max-width: 600px; /* Ajuste o tamanho da imagem conforme necessário */
+    max-height: 600px;
+    width: auto;
+    height: auto;
+  }
+  
+  .news-modal p {
+    font-size: 16px;
+    color: #666;
+    text-align: left;
+  }
+  
+  .close-modal-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .close-modal-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 600px) {
+    .news-modal {
+      padding: 10px;
+      max-width: 95%; /* Ajusta para telas menores */
+      width: 95%; /* Ajusta para telas menores */
+    }
+  
+    .news-modal h2 {
+      font-size: 20px;
+    }
+  
+    .news-modal p {
+      font-size: 14px;
+    }
+  
+    .close-modal-button {
+      padding: 8px 16px;
+    }
+  }
+  

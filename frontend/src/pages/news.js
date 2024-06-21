@@ -1,14 +1,16 @@
-//news.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './news.css';
-import { news } from "../data/news_data.js";
-import NewsCard from '../components/newsCard/newsCard.js';
-import NewsModal from '../components/newsModal/newsModal.js';
+import { news as initialNews } from "../data/news_data.js";
+import NewsCard from "../components/newsCards/newsCards.js";
+import NewsModal from "../components/newsModal/newsModal.js";
+import CreateNewsModal from "../components/createNewsModal/createNewsModal.js";
 
 const News = () => {
   const navigate = useNavigate();
+  const [news, setNews] = useState(initialNews);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [createModalIsOpen, setCreateModalIsOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
 
   const handleBack = () => {
@@ -25,9 +27,22 @@ const News = () => {
     setSelectedNews(null);
   };
 
+  const openCreateModal = () => {
+    setCreateModalIsOpen(true);
+  };
+
+  const closeCreateModal = () => {
+    setCreateModalIsOpen(false);
+  };
+
+  const addNews = (newNews) => {
+    setNews([newNews, ...news]);
+  };
+
   return (
     <div className="news-container">
       <button className="back-button" onClick={handleBack}>Voltar</button>
+      <button className="create-news-button" onClick={openCreateModal}>Criar Notícia</button>
       <h1>Últimas Notícias</h1>
       <div className="news-feed">
         {news.map(item => (
@@ -41,6 +56,11 @@ const News = () => {
           selectedNews={selectedNews}
         />
       )}
+      <CreateNewsModal
+        isOpen={createModalIsOpen}
+        closeModal={closeCreateModal}
+        addNews={addNews}
+      />
     </div>
   );
 };

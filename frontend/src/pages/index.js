@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import './index.css';
+import { useNavigate } from "react-router-dom";
+import "./index.css";
 import { news } from "../data/news_data.js";
 import { events } from "../data/events_data.js";
 import { facts } from "../data/facts_data.js";
@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % news.length);
-    }, 3000); 
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,7 +46,10 @@ const Home = () => {
                 index === currentNewsIndex ? "active" : ""
               }`}
             >
-              <img src={item.image} alt={item.title} />
+              <img
+                src={require(`../assets/news/${item.image}`)}
+                alt={item.title}
+              />
               <h2>{item.title}</h2>
             </div>
           ))}
@@ -90,8 +93,7 @@ const Home = () => {
           {watchLocations.map((location) => (
             <div key={location.id} className="location-card">
               <a href={location.link} target="_blank" rel="noopener noreferrer">
-                <img src={location.logo} alt={location.name} />
-                <p>{location.name}</p>
+                <img src={require(`../assets/watch/${location.logo}`)} alt={location.name} />
               </a>
             </div>
           ))}
@@ -104,8 +106,7 @@ const Home = () => {
           {sponsors.map((sponsor) => (
             <div key={sponsor.id} className="sponsor-card">
               <a href={sponsor.link} target="_blank" rel="noopener noreferrer">
-                <img src={sponsor.logo} alt={sponsor.name} />
-                <p>{sponsor.name}</p>
+                <img src={require(`../assets/sponsors/${sponsor.logo}`)} alt={sponsor.name} />
               </a>
             </div>
           ))}
