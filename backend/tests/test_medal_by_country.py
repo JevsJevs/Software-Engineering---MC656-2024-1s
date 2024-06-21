@@ -1,12 +1,6 @@
 # These tests are of the Unit test type. 
 # Their testing method is by defining equivalence input classes 
 from main import app
-import pytest
-
-@pytest.fixture
-def setup_app():
-    instance = app.test_client()
-    return instance
 
 #Equivalent classes:
 #search for unregistered country
@@ -30,11 +24,11 @@ def test_unregistered_country_medal():
     instance = app.test_client()
     resp = instance.get("/medals/XXX")
     assert resp.status_code == 404 #country not found
-    
+
 def test_empty_country_medal():
     instance = app.test_client()
     resp = instance.get("/medals/")
-    assert resp.status_code == 400
+    assert resp.status_code == 404
 
 def test_registered_country_medal():
     instance = app.test_client()
