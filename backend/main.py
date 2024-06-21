@@ -37,6 +37,8 @@ def medals():
 
 @app.route("/medals/<country>", methods=["GET"])
 def medals_by_country(country):
+    if len(country) != 3:
+        return {"error": "Código de país deve ter 3 caracteres."}, 400
     endpointQuerySql = f"""SELECT noc.nome as NOC, 
                           SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
                           SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
