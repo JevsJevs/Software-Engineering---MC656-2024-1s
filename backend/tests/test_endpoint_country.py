@@ -12,7 +12,7 @@ def test_checkCountryMedal():
     assert resp.status_code == 400
     assert data["error"] == "Código de país deve ter 3 caracteres."
     # Caso inválido - País inexistente
-    resp = instance.get("/medals/BRZ")
+    resp = instance.get("/medals/aaa")
     data = resp.get_json()
     assert resp._status_code == 404
     assert data["error"] == "NOC de código 'aaa' não existe."
