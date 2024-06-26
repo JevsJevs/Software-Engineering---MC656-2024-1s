@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './news.css';
 import { news as initialNews } from "../data/news_data.js";
-import NewsCard from "../components/newsCards/newsCards.js";
+import NewsCard from "../components/NewsCards/newsCards.js";
 import NewsModal from "../components/newsModal/newsModal.js";
 import CreateNewsModal from "../components/createNewsModal/createNewsModal.js";
 

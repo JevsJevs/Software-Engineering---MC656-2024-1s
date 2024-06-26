@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import './newsModal.css';
+import '../NewsModal/newsModal.css';
 
 const NewsModal = ({ isOpen, closeModal, selectedNews }) => (
   <Modal
