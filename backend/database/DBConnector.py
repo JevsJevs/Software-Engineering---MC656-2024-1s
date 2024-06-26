@@ -22,9 +22,9 @@ class DBConnect(metaclass=SingletonMeta):
     def __del__(self):
         self.con.close()
 
-    def runQuery(self, query):
+    def runQuery(self, query, parameters = []):
         cursor = self.con.cursor()
-        cursor.execute(query)
+        cursor.execute(query, parameters)
         result = cursor.fetchall()
         cursor.close()
 
