@@ -172,7 +172,6 @@ def categories():
     result = {"table": []}
     for row in results:
         result["table"].append({
-            "id": row[0],
-            "nome": row[1],
+            "nome": row[0]
         })
     return result
