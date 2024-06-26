@@ -161,7 +161,7 @@ def medals_by_category(category):
         })
     return result
 
-@app.route("categories", methods=["GET"])
+@app.route("/categories", methods=["GET"])
 def categories():
     # Retorna as categorias de esportes
     endpointQuerySql = """SELECT esporte.nome as nome
