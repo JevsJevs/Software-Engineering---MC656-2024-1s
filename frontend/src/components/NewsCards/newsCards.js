@@ -1,4 +1,5 @@
 import React from "react";
+import './newsCards.css';
 
 const NewsCard = ({ item, openModal }) => (
   <div className="news-card">

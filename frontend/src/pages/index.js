@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import "./index.css";
 import { news } from "../data/news_data.js";
 import { events } from "../data/events_data.js";
-import { facts } from "../data/facts_data.js";
+import { facts as mock_facts } from "../data/facts_data.js";
 import { watchLocations } from "../data/watch_data.js";
 import { sponsors } from "../data/sponsors_data.js";
 
 const Home = () => {
   const navigate = useNavigate();
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+  const [facts, setFacts] = useState(mock_facts)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,6 +34,46 @@ const Home = () => {
     navigate("/news");
   };
 
+  useEffect(() => {
+    // Atualizar o fato com o país com mais medalhas de ouro
+    axios.get("http://127.0.0.1:5000/medals/top/1")
+      .then(resp => {
+        const country = resp.data.table[0].nome;
+        const newFacts = facts.map(f => {
+          if (f.id === 1) {
+            return {
+              ...f,
+              fact: `País com mais medalhas de ouro: ${country}`
+            };
+          }
+          return f;
+        });
+        setFacts(newFacts);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a solicitação Axios:', error);
+      });
+
+    // Atualizar o fato com o número de países participantes
+    axios.get("http://127.0.0.1:5000/medals/")
+      .then(resp => {
+        const newFacts = facts.map(f => {
+          if (f.id === 2) {
+            return {
+              ...f,
+              fact: `${resp.data.table.length} países participam das Olimpíadas`
+            };
+          }
+          return f;
+        });
+        setFacts(newFacts);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a solicitação Axios:', error);
+      });
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="home-container">
       <section className="banner">
@@ -42,9 +84,7 @@ const Home = () => {
           {news.map((item, index) => (
             <div
               key={item.id}
-              className={`news-item ${
-                index === currentNewsIndex ? "active" : ""
-              }`}
+              className={`news-item ${index === currentNewsIndex ? "active" : ""}`}
             >
               <img
                 src={require(`../assets/news/${item.image}`)}
