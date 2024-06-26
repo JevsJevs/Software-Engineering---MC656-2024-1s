@@ -12,6 +12,13 @@ const Home = () => {
   const navigate = useNavigate();
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const [facts, setFacts] = useState(mock_facts);
+  const [loaded, setLoaded] = useState({
+    topCountry: false,
+    participants: false,
+    brazilGold: false,
+    bestRatio: false,
+    athletics: false
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,114 +41,78 @@ const Home = () => {
     navigate("/news");
   };
 
-  // Atualizar o fato com o país com mais medalhas de ouro
-  useEffect(() => {
-    axios.get("http://127.0.0.1:5000/medals/top/1")
-      .then(resp => {
-        const country = resp.data.table[0].nome;
-        const newFacts = facts.map(f => {
-          if (f.id === 1) {
-            return {
-              ...f,
-              fact: `País com mais medalhas de ouro: ${country}`
-            };
-          }
-          return f;
-        });
-        setFacts(newFacts);
-      })
-      .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios para /medals/top/1:', error);
-      });
-      // eslint-disable-next-line
-  }, []);
+  const updateFact = (id, fact) => {
+    setFacts(prevFacts => prevFacts.map(f => f.id === id ? { ...f, fact } : f));
+  };
 
-  // Atualizar o fato com o número de países participantes
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/medals/")
-      .then(resp => {
-        const newFacts = facts.map(f => {
-          if (f.id === 2) {
-            return {
-              ...f,
-              fact: `${resp.data.table.length} países participam das Olimpíadas`
-            };
-          }
-          return f;
+    if (!loaded.topCountry) {
+      axios.get("http://127.0.0.1:5000/medals/top/1")
+        .then(resp => {
+          const country = resp.data.table[0].nome;
+          updateFact(1, `País com mais medalhas de ouro: ${country}`);
+          setLoaded(prev => ({ ...prev, topCountry: true }));
+        })
+        .catch(error => {
+          console.error('Erro ao fazer a solicitação Axios para /medals/top/1:', error);
         });
-        setFacts(newFacts);
-      })
-      .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios para /medals:', error);
-      });
-      // eslint-disable-next-line
-  }, []);
+    }
+  }, [loaded.topCountry]);
 
-  // Atualizar o fato com o número de medalhas de ouro do Brasil
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/medals/BRA")
-      .then(resp => {
-        const ouro = resp.data.country.ouro;
-        const newFacts = facts.map(f => {
-          if (f.id === 3) {
-            return {
-              ...f,
-              fact: `Medalhas de Ouro do Brasil: ${ouro}`
-            };
-          }
-          return f;
+    if (!loaded.participants) {
+      axios.get("http://127.0.0.1:5000/medals/")
+        .then(resp => {
+          updateFact(2, `${resp.data.table.length} países participam das Olimpíadas`);
+          setLoaded(prev => ({ ...prev, participants: true }));
+        })
+        .catch(error => {
+          console.error('Erro ao fazer a solicitação Axios para /medals:', error);
         });
-        setFacts(newFacts);
-      })
-      .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios para /medals/BRA:', error);
-      });
-      // eslint-disable-next-line
-  }, []);
+    }
+  }, [loaded.participants]);
 
-  // Atualizar o fato com a melhor proporção de medalhas de ouro
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/medals/ratio")
-      .then(resp => {
-        const proporcao = resp.data.table[0].nome;
-        const newFacts = facts.map(f => {
-          if (f.id === 4) {
-            return {
-              ...f,
-              fact: `País com melhor proporção de medalhas de ouro: ${proporcao}`
-            };
-          }
-          return f;
+    if (!loaded.brazilGold) {
+      axios.get("http://127.0.0.1:5000/medals/BRA")
+        .then(resp => {
+          const ouro = resp.data.country.ouro;
+          updateFact(3, `Medalhas de Ouro do Brasil: ${ouro}`);
+          setLoaded(prev => ({ ...prev, brazilGold: true }));
+        })
+        .catch(error => {
+          console.error('Erro ao fazer a solicitação Axios para /medals/BRA:', error);
         });
-        setFacts(newFacts);
-      })
-      .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios para /medals/ratio:', error);
-      });
-      // eslint-disable-next-line
-  }, []);
+    }
+  }, [loaded.brazilGold]);
 
-  // Atualizar o fato com o país com mais medalhas em Atletismo
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/medals/category/athletics")
-      .then(resp => {
-        const atletismo = resp.data.table[0].ouro;
-        const newFacts = facts.map(f => {
-          if (f.id === 5) {
-            return {
-              ...f,
-              fact: `País com mais medalhas em Atletismo: ${atletismo}`
-            };
-          }
-          return f;
+    if (!loaded.bestRatio) {
+      axios.get("http://127.0.0.1:5000/medals/ratio")
+        .then(resp => {
+          const proporcao = resp.data.table[0].nome;
+          updateFact(4, `País com melhor proporção de medalhas de ouro: ${proporcao}`);
+          setLoaded(prev => ({ ...prev, bestRatio: true }));
+        })
+        .catch(error => {
+          console.error('Erro ao fazer a solicitação Axios para /medals/ratio:', error);
         });
-        setFacts(newFacts);
-      })
-      .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios para /medals/category/Atletismo:', error);
-      });
-      // eslint-disable-next-line
-  }, []);
+    }
+  }, [loaded.bestRatio]);
+
+  useEffect(() => {
+    if (!loaded.athletics) {
+      axios.get("http://127.0.0.1:5000/medals/category/athletics")
+        .then(resp => {
+          const atletismo = resp.data.table[0].ouro;
+          updateFact(5, `País com mais medalhas em Atletismo: ${atletismo}`);
+          setLoaded(prev => ({ ...prev, athletics: true }));
+        })
+        .catch(error => {
+          console.error('Erro ao fazer a solicitação Axios para /medals/category/athletics:', error);
+        });
+    }
+  }, [loaded.athletics]);
 
   return (
     <div className="home-container">
