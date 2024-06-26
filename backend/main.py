@@ -48,12 +48,12 @@ def medals_by_country(country):
                    FROM noc
                    JOIN atleta ON noc.codigo = atleta.noc
                    JOIN medalha ON atleta.id = medalha.atleta
-                   WHERE noc.codigo = "{str(country)}"
+                   WHERE noc.codigo = ?
                    GROUP BY noc.nome
                    ORDER BY Ouro DESC, Prata DESC, Bronze DESC"""
 
     db = DBConnect()
-    queryRes = db.runQuery(endpointQuerySql)
+    queryRes = db.runQuery(endpointQuerySql, [country])
     try:
         row = queryRes.pop(0)
         result = {
@@ -83,9 +83,9 @@ def medals_top(n):
                         JOIN medalha ON atleta.id = medalha.atleta
                         GROUP BY noc.codigo
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
-                        LIMIT "{str(n)}" """
+                        LIMIT ? """
     db = DBConnect()
-    results = db.runQuery(endpointQuerySql)
+    results = db.runQuery(endpointQuerySql, [n])
     result = {"table": []}
     for row in results:
         result["table"].append({
@@ -144,12 +144,12 @@ def medals_by_category(category):
                         JOIN medalha ON atleta.id = medalha.atleta
                         JOIN esporte ON evento.esporte = esporte.id
                         JOIN evento ON medalha.evento = evento.id
-                        WHERE esporte.id = "{str(category)}"
+                        WHERE esporte.id = ?
                         GROUP BY noc.nome
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
                     """
     db = DBConnect()
-    results = db.runQuery(endpointQuerySql)
+    results = db.runQuery(endpointQuerySql, [category])
     result = {"table": []}
     for row in results:
         result["table"].append({
