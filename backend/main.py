@@ -1,9 +1,11 @@
 from flask import Flask, abort
 from flask import jsonify
+from flask_cors import CORS
 from models import *
 from database.DBConnector import * 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
