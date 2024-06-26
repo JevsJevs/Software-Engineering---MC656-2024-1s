@@ -61,9 +61,9 @@ const Home = () => {
 
   useEffect(() => {
     if (!loaded.participants) {
-      axios.get("http://127.0.0.1:5000/medals/")
+      axios.get("http://127.0.0.1:5000/medals")
         .then(resp => {
-          updateFact(2, `${resp.data.table.length} países participam das Olimpíadas`);
+          updateFact(2, `${resp.data.table.length} países ganharam medalha nas Olimpíadas`);
           setLoaded(prev => ({ ...prev, participants: true }));
         })
         .catch(error => {
