@@ -28,11 +28,11 @@ const CreateNewsModal = ({ isOpen, closeModal, addNews }) => {
       className="news-modal"
       overlayClassName="news-overlay"
     >
-      <h2>Criar Nova Notícia</h2>
+      <h2>Create New News</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Título"
+          placeholder="Title"
           maxLength="50"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -40,23 +40,23 @@ const CreateNewsModal = ({ isOpen, closeModal, addNews }) => {
         />
         <input
           type="text"
-          placeholder="Descrição"
+          placeholder="Description"
           maxLength="100"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
         <textarea
-          placeholder="Conteúdo"
+          placeholder="Content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           required
         ></textarea>
         <input type="file" onChange={handleImageUpload} required />
         {imageUrl && <img src={imageUrl} alt="Preview" style={{ width: '100px', height: '100px', marginTop: '10px' }} />}
-        <button type="submit">Salvar</button>
+        <button type="submit">Save</button>
       </form>
-      <button onClick={closeModal} className="close-modal-button">Fechar</button>
+      <button onClick={closeModal} className="close-modal-button">Close</button>
     </Modal>
   );
 };
