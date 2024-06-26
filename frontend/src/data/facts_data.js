@@ -1,22 +1,22 @@
 export const facts = [
-    {
-      id: 1,
-      fact: "País com mais medalhas de ouro: carregando..."
-    },
-    {
-      id: 2,
-      fact: "carregando... países conseguiram medalhas nas Olimpíadas"
-    },
-    {
-      id: 3,
-      fact: "Medalhas do Brasil: carregando..."
-    },
-    {
-      id: 4,
-      fact: "Pais com melhor proporção de medalhas de ouro: carregando..."
-    },
-    {
-      id: 5,
-      fact: "Pais com mais medalhas em Atletismo: carregando..."
-    },
-  ];
+  {
+    id: 1,
+    fact: "Country with the most gold medals: loading..."
+  },
+  {
+    id: 2,
+    fact: "loading... countries have won medals in the Olympics"
+  },
+  {
+    id: 3,
+    fact: "Brazil's medals: loading..."
+  },
+  {
+    id: 4,
+    fact: "Country with the best gold medal ratio: loading..."
+  },
+  {
+    id: 5,
+    fact: "Country with the most medals in Athletics: loading..."
+  },
+];

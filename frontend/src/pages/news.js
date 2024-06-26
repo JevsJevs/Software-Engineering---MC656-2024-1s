@@ -41,9 +41,9 @@ const News = () => {
 
   return (
     <div className="news-container">
-      <button className="back-button" onClick={handleBack}>Voltar</button>
-      <button className="create-news-button" onClick={openCreateModal}>Criar Notícia</button>
-      <h1>Últimas Notícias</h1>
+      <button className="back-button" onClick={handleBack}>Back</button>
+      <button className="create-news-button" onClick={openCreateModal}>Create News</button>
+      <h1>Latest News</h1>
       <div className="news-feed">
         {news.map(item => (
           <NewsCard key={item.id} item={item} openModal={openModal} />

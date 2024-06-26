@@ -50,7 +50,7 @@ const Home = () => {
       axios.get("http://127.0.0.1:5000/medals/top/1")
         .then(resp => {
           const country = resp.data.table[0].nome;
-          updateFact(1, `País com mais medalhas de ouro: ${country}`);
+          updateFact(1, `Country with the most gold medals: ${country}`);
           setLoaded(prev => ({ ...prev, topCountry: true }));
         })
         .catch(error => {
@@ -63,7 +63,7 @@ const Home = () => {
     if (!loaded.participants) {
       axios.get("http://127.0.0.1:5000/medals")
         .then(resp => {
-          updateFact(2, `${resp.data.table.length} países ganharam medalha nas Olimpíadas`);
+          updateFact(2, `${resp.data.table.length} countries have won medals in the Olympics`);
           setLoaded(prev => ({ ...prev, participants: true }));
         })
         .catch(error => {
@@ -77,7 +77,7 @@ const Home = () => {
       axios.get("http://127.0.0.1:5000/medals/BRA")
         .then(resp => {
           const ouro = resp.data.country.ouro;
-          updateFact(3, `Medalhas de Ouro do Brasil: ${ouro}`);
+          updateFact(3, `Brazil's medals: ${ouro}`);
           setLoaded(prev => ({ ...prev, brazilGold: true }));
         })
         .catch(error => {
@@ -91,7 +91,7 @@ const Home = () => {
       axios.get("http://127.0.0.1:5000/medals/ratio")
         .then(resp => {
           const proporcao = resp.data.table[0].nome;
-          updateFact(4, `País com melhor proporção de medalhas de ouro: ${proporcao}`);
+          updateFact(4, `Country with the best gold medal ratio: ${proporcao}`);
           setLoaded(prev => ({ ...prev, bestRatio: true }));
         })
         .catch(error => {
@@ -105,7 +105,7 @@ const Home = () => {
       axios.get("http://127.0.0.1:5000/medals/category/athletics")
         .then(resp => {
           const atletismo = resp.data.table[0].ouro;
-          updateFact(5, `País com mais medalhas em Atletismo: ${atletismo}`);
+          updateFact(5, `Country with the most medals in Athletics: ${atletismo}`);
           setLoaded(prev => ({ ...prev, athletics: true }));
         })
         .catch(error => {
@@ -138,12 +138,12 @@ const Home = () => {
           </button>
         </div>
         <button className="all-news-button" onClick={handleViewAllNews}>
-          Ver todas as notícias
+          View all news
         </button>
       </section>
 
       <section className="events">
-        <h2>Próximos Eventos</h2>
+        <h2>Upcoming Events</h2>
         <div className="event-cards">
           {events.map((event) => (
             <div key={event.id} className="event-card">
@@ -157,7 +157,7 @@ const Home = () => {
       </section>
 
       <section className="facts">
-        <h2>Curiosidades</h2>
+        <h2>Facts</h2>
         <div className="fact-cards">
           {facts.map((fact) => (
             <div key={fact.id} className="fact-card">
@@ -168,7 +168,7 @@ const Home = () => {
       </section>
 
       <section className="watch-locations">
-        <h2>Onde Assistir</h2>
+        <h2>Where to Watch</h2>
         <div className="location-cards">
           {watchLocations.map((location) => (
             <div key={location.id} className="location-card">
@@ -181,7 +181,7 @@ const Home = () => {
       </section>
 
       <section className="sponsors">
-        <h2>Patrocinadores</h2>
+        <h2>Sponsors</h2>
         <div className="sponsor-cards">
           {sponsors.map((sponsor) => (
             <div key={sponsor.id} className="sponsor-card">
