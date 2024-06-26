@@ -11,7 +11,7 @@ import { sponsors } from "../data/sponsors_data.js";
 const Home = () => {
   const navigate = useNavigate();
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
-  const [facts, setFacts] = useState(mock_facts)
+  const [facts, setFacts] = useState(mock_facts);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,8 +34,8 @@ const Home = () => {
     navigate("/news");
   };
 
+  // Atualizar o fato com o país com mais medalhas de ouro
   useEffect(() => {
-    // Atualizar o fato com o país com mais medalhas de ouro
     axios.get("http://127.0.0.1:5000/medals/top/1")
       .then(resp => {
         const country = resp.data.table[0].nome;
@@ -51,10 +51,13 @@ const Home = () => {
         setFacts(newFacts);
       })
       .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios:', error);
+        console.error('Erro ao fazer a solicitação Axios para /medals/top/1:', error);
       });
+      // eslint-disable-next-line
+  }, []);
 
-    // Atualizar o fato com o número de países participantes
+  // Atualizar o fato com o número de países participantes
+  useEffect(() => {
     axios.get("http://127.0.0.1:5000/medals/")
       .then(resp => {
         const newFacts = facts.map(f => {
@@ -69,9 +72,75 @@ const Home = () => {
         setFacts(newFacts);
       })
       .catch(error => {
-        console.error('Erro ao fazer a solicitação Axios:', error);
+        console.error('Erro ao fazer a solicitação Axios para /medals:', error);
       });
-    // eslint-disable-next-line
+      // eslint-disable-next-line
+  }, []);
+
+  // Atualizar o fato com o número de medalhas de ouro do Brasil
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5000/medals/BRA")
+      .then(resp => {
+        const ouro = resp.data.country.ouro;
+        const newFacts = facts.map(f => {
+          if (f.id === 3) {
+            return {
+              ...f,
+              fact: `Medalhas de Ouro do Brasil: ${ouro}`
+            };
+          }
+          return f;
+        });
+        setFacts(newFacts);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a solicitação Axios para /medals/BRA:', error);
+      });
+      // eslint-disable-next-line
+  }, []);
+
+  // Atualizar o fato com a melhor proporção de medalhas de ouro
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5000/medals/ratio")
+      .then(resp => {
+        const proporcao = resp.data.table[0].nome;
+        const newFacts = facts.map(f => {
+          if (f.id === 4) {
+            return {
+              ...f,
+              fact: `País com melhor proporção de medalhas de ouro: ${proporcao}`
+            };
+          }
+          return f;
+        });
+        setFacts(newFacts);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a solicitação Axios para /medals/ratio:', error);
+      });
+      // eslint-disable-next-line
+  }, []);
+
+  // Atualizar o fato com o país com mais medalhas em Atletismo
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5000/medals/category/athletics")
+      .then(resp => {
+        const atletismo = resp.data.table[0].ouro;
+        const newFacts = facts.map(f => {
+          if (f.id === 5) {
+            return {
+              ...f,
+              fact: `País com mais medalhas em Atletismo: ${atletismo}`
+            };
+          }
+          return f;
+        });
+        setFacts(newFacts);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a solicitação Axios para /medals/category/Atletismo:', error);
+      });
+      // eslint-disable-next-line
   }, []);
 
   return (
