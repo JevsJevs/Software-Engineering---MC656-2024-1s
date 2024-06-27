@@ -175,3 +175,28 @@ def categories():
             "nome": row[0]
         })
     return result
+
+@app.route("/athlete/<country>", methods=["GET"])
+def athlete_by_country(country):
+    if len(country) != 3:
+        return {"error": "Código de país deve ter 3 caracteres."}, 400
+    endpointQuerySql = f"""SELECT * FROM atleta WHERE noc = "{str(country)}" """
+
+    db = DBConnect()
+    queryRes = db.runQuery(endpointQuerySql)
+    if(len(queryRes) == 0):
+        return "country not found", 404
+    try:
+        results = {"table": []}
+        for row in queryRes:
+            results["table"].append({
+                "id": row[0],
+                "nome": row[1],
+                "genero": row[2],
+                "idade": row[3],
+                "noc": row[4],
+            })
+    except Exception:
+        results = {"error": f"NOC de código '{country}' não existe."}, 404
+
+    return results
