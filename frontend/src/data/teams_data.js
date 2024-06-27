@@ -1,4 +1,4 @@
-export const teams = [
+const teams = [
     {
       id: 0,
       name: "United States",
@@ -122,3 +122,4 @@ export const teams = [
     },
   ];
   
+export default teams;
