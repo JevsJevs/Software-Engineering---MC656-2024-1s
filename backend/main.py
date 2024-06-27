@@ -164,15 +164,14 @@ def medals_by_category(category):
 @app.route("/categories", methods=["GET"])
 def categories():
     # Retorna as categorias de esportes
-    endpointQuerySql = """SELECT esporte.nome as nome
-                        FROM esporte
-                        """
+    endpointQuerySql = """SELECT * FROM esporte"""
     db = DBConnect()
     results = db.runQuery(endpointQuerySql)
     result = {"table": []}
     for row in results:
         result["table"].append({
-            "nome": row[0]
+            "id": row[0],
+            "nome": row[1],
         })
     return result
 
