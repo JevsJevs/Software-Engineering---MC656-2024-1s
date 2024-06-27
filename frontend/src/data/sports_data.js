@@ -1,4 +1,4 @@
-export const sports = [
+const sports = [
   {
     id: 0,
     name: "Aquatics: Artistic Swimming",
@@ -235,3 +235,4 @@ export const sports = [
     imageId: "wrestling.png",
   },
 ];
+export default sports;

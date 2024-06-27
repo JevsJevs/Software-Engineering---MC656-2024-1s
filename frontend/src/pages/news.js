@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './news.css';
 import { news as initialNews } from "../data/news_data.js";
-import NewsCard from "../components/newsCards/newsCards.js";
-import NewsModal from "../components/newsModal/newsModal.js";
+import NewsCard from "../components/NewsCards/newsCards.js";
+import NewsModal from "../components/NewsModal/newsModal.js";
 import CreateNewsModal from "../components/createNewsModal/createNewsModal.js";
 
 const News = () => {
@@ -41,9 +41,9 @@ const News = () => {
 
   return (
     <div className="news-container">
-      <button className="back-button" onClick={handleBack}>Voltar</button>
-      <button className="create-news-button" onClick={openCreateModal}>Criar Notícia</button>
-      <h1>Últimas Notícias</h1>
+      <button className="back-button" onClick={handleBack}>Back</button>
+      <button className="create-news-button" onClick={openCreateModal}>Create News</button>
+      <h1>Latest News</h1>
       <div className="news-feed">
         {news.map(item => (
           <NewsCard key={item.id} item={item} openModal={openModal} />

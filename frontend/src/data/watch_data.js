@@ -9,6 +9,6 @@ export const watchLocations = [
       id: 2,
       name: "SporTV",
       logo: "sportv-logo-1-1.png",
-      link: "https://www.sportv.com"
+      link: "https://globoplay.globo.com/canais/sportv/"
     }
   ];

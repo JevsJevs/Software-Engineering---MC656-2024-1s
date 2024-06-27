@@ -1,9 +1,11 @@
 from flask import Flask, abort
 from flask import jsonify
+from flask_cors import CORS
 from models import *
 from database.DBConnector import * 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
@@ -46,12 +48,12 @@ def medals_by_country(country):
                    FROM noc
                    JOIN atleta ON noc.codigo = atleta.noc
                    JOIN medalha ON atleta.id = medalha.atleta
-                   WHERE noc.codigo = "{str(country)}"
+                   WHERE noc.codigo = ?
                    GROUP BY noc.nome
                    ORDER BY Ouro DESC, Prata DESC, Bronze DESC"""
 
     db = DBConnect()
-    queryRes = db.runQuery(endpointQuerySql)
+    queryRes = db.runQuery(endpointQuerySql, [country])
     try:
         row = queryRes.pop(0)
         result = {
@@ -75,15 +77,16 @@ def medals_top(n):
                             noc.codigo as codigo,
                             SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
                             SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
-                            SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+                            SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze,
+                            (SELECT COUNT(*) from atleta WHERE atleta.noc = noc.codigo) as totalAtletas
                         FROM noc
                         JOIN atleta ON noc.codigo = atleta.noc
                         JOIN medalha ON atleta.id = medalha.atleta
-                        GROUP BY noc.codigo
+                        GROUP BY noc.nome, noc.codigo
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
-                        LIMIT "{str(n)}" """
+                        LIMIT ? """
     db = DBConnect()
-    results = db.runQuery(endpointQuerySql)
+    results = db.runQuery(endpointQuerySql, [n])
     result = {"table": []}
     for row in results:
         result["table"].append({
@@ -92,6 +95,7 @@ def medals_top(n):
             "ouro": row[2],
             "prata": row[3],
             "bronze": row[4],
+            "totalAtletas": row[5]
         })
     return result
 
@@ -142,12 +146,12 @@ def medals_by_category(category):
                         JOIN medalha ON atleta.id = medalha.atleta
                         JOIN esporte ON evento.esporte = esporte.id
                         JOIN evento ON medalha.evento = evento.id
-                        WHERE esporte.id = "{str(category)}"
+                        WHERE esporte.id = ?
                         GROUP BY noc.nome
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
                     """
     db = DBConnect()
-    results = db.runQuery(endpointQuerySql)
+    results = db.runQuery(endpointQuerySql, [category])
     result = {"table": []}
     for row in results:
         result["table"].append({
@@ -158,3 +162,47 @@ def medals_by_category(category):
             "bronze": row[4],
         })
     return result
+
+@app.route("/categories", methods=["GET"])
+def categories():
+    # Retorna as categorias de esportes
+    endpointQuerySql = """SELECT * FROM esporte"""
+    db = DBConnect()
+    results = db.runQuery(endpointQuerySql)
+    result = {"table": []}
+    for row in results:
+        result["table"].append({
+            "id": row[0],
+            "nome": row[1],
+        })
+    return result
+
+@app.route("/athlete/<country>", methods=["GET"])
+def athlete_by_country(country):
+    if len(country) != 3:
+        return {"error": "Código de país deve ter 3 caracteres."}, 400
+    endpointQuerySql = f"""
+        SELECT *, 
+        (SELECT COUNT(*) FROM atleta WHERE noc = "{str(country)}") as athletesCount
+        FROM atleta WHERE noc = "{str(country)}"
+        """
+
+    db = DBConnect()
+    queryRes = db.runQuery(endpointQuerySql)
+    if(len(queryRes) == 0):
+        return "country not found", 404
+    try:
+        results = {"table": []}
+        for row in queryRes:
+            results["table"].append({
+                "id": row[0],
+                "nome": row[1],
+                "genero": row[2],
+                "idade": row[3],
+                "noc": row[4],
+                "total_athletes": row[5],
+            })
+    except Exception:
+        results = {"error": f"NOC de código '{country}' não existe."}, 404
+
+    return results
