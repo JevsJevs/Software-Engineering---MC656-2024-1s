@@ -53,10 +53,9 @@ const Table = () => {
       .then(resp => {
         setTableRows(TABLE_HEADER);
         setValues([...resp.data.table].map((countryData, i) => toCountryArray(countryData, i+1)));
-        console.log([...resp.data.table].map((countryData, i) => toCountryArray(countryData, i+1)))
       })
       .catch(() => getMockedData());
-    }, []);
+    });
 
   return (
     <div className="table-container">
