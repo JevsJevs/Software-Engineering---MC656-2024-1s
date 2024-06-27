@@ -77,11 +77,12 @@ def medals_top(n):
                             noc.codigo as codigo,
                             SUM(CASE WHEN medalha.tipo = 'O' THEN 1 ELSE 0 END) as Ouro,
                             SUM(CASE WHEN medalha.tipo = 'P' THEN 1 ELSE 0 END) as Prata,
-                            SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze
+                            SUM(CASE WHEN medalha.tipo = 'B' THEN 1 ELSE 0 END) as Bronze,
+                            (SELECT COUNT(*) from atleta WHERE atleta.noc = noc.codigo) as totalAtletas
                         FROM noc
                         JOIN atleta ON noc.codigo = atleta.noc
                         JOIN medalha ON atleta.id = medalha.atleta
-                        GROUP BY noc.codigo
+                        GROUP BY noc.nome, noc.codigo
                         ORDER BY Ouro DESC, Prata DESC, Bronze DESC
                         LIMIT ? """
     db = DBConnect()
@@ -94,6 +95,7 @@ def medals_top(n):
             "ouro": row[2],
             "prata": row[3],
             "bronze": row[4],
+            "totalAtletas": row[5]
         })
     return result
 
@@ -179,7 +181,11 @@ def categories():
 def athlete_by_country(country):
     if len(country) != 3:
         return {"error": "Código de país deve ter 3 caracteres."}, 400
-    endpointQuerySql = f"""SELECT * FROM atleta WHERE noc = "{str(country)}" """
+    endpointQuerySql = f"""
+        SELECT *, 
+        (SELECT COUNT(*) FROM atleta WHERE noc = "{str(country)}") as athletesCount
+        FROM atleta WHERE noc = "{str(country)}"
+        """
 
     db = DBConnect()
     queryRes = db.runQuery(endpointQuerySql)
@@ -194,6 +200,7 @@ def athlete_by_country(country):
                 "genero": row[2],
                 "idade": row[3],
                 "noc": row[4],
+                "total_athletes": row[5],
             })
     except Exception:
         results = {"error": f"NOC de código '{country}' não existe."}, 404
