@@ -2,26 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./sports.css";
 import { images } from "../assets/sports_pictogram/index.js";
-import mockSports  from "../data/sports_data.js";
+import mockSports from "../data/sports_data.js";
 
 const Sports = () => {
-  const [sports, setSports] = useState();
+  const [sports, setSports] = useState([]);
 
   const getImageFile = (imgTag) => {
     if (images[imgTag] == null) {
       return images.golf;
     }
-    return images[imgTag]
-  } 
-
+    return images[imgTag];
+  };
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/categories")
-      .then(resp => {
-        let parsed = resp.data.table.map(x => {
-          if(x.id == "3x3-basketball")
-            return ({id:"basketball3x3", nome:"Basquete 3x3"});
-          return ({...x, id: x.id.replaceAll('-', '')});
+    axios
+      .get("http://127.0.0.1:5000/categories")
+      .then((resp) => {
+        let parsed = resp.data.table.map((x) => {
+          if (x.id === "3x3-basketball")
+            return { id: "basketball3x3", nome: "Basquete 3x3" };
+          return { ...x, id: x.id.replaceAll("-", "") };
         });
         setSports(parsed);
       })

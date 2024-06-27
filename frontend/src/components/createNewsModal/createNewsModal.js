@@ -6,6 +6,7 @@ const CreateNewsModal = ({ isOpen, closeModal, addNews }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
+  // eslint-disable-next-line
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
